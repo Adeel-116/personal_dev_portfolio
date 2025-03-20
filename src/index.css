@@ -1,11 +1,13 @@
+@import "tailwindcss";
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
   font-weight: 400;
 
-  color-scheme: light dark;
+  /* color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #242424; */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -13,7 +15,57 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
+::-webkit-scrollbar{
+  width: 6px;
+  height: 6px; 
+  background: transparent;
+}
+::-webkit-scrollbar-track {
+  background: #221343;
+  border-radius: 0px; 
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00C0FF; 
+  border-radius: 10px; 
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #12c8faca;
+}
+
+
+
+
+.verticalAnimation {
+  width: 0.5px; 
+  height: 0; 
+  background-color: #1D1C4E;
+  animation: expandVertical 1s  cubic-bezier(.2,.78,.79,.34) forwards,
+             expandHorizontal 1s cubic-bezier(.54,.27,0,.98) 1s forwards;
+}
+
+@keyframes expandVertical {
+  0% {
+    height: 0; 
+  }
+  100% {
+    height: 100%;
+  }
+}
+
+@keyframes expandHorizontal {
+  0% {
+    width: 0.5px; 
+  }
+  100% {
+    width: 100%; 
+
+  }
+}
+
+
+
+/* a {
   font-weight: 500;
   color: #646cff;
   text-decoration: inherit;
@@ -33,9 +85,9 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
-}
+} */
 
-button {
+/* button {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
@@ -52,8 +104,9 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
+} */
 
+/* 
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -65,4 +118,4 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
+} */
