@@ -2,7 +2,10 @@
 import HeroSection from './HeroSection/HeroSection';
 import MouseCircle from './MouseCircle';
 import Header from './Header/Header';
-
+import SkillCardSection from './About/SkillCardSection';
+import AboutUS from './About/AboutUS';
+import SkillSection from './SkillsSection/SkillSection';
+import Service from './services/Service';
 
 function ImageComponent() {
  
@@ -22,6 +25,17 @@ function ImageComponent() {
       <HeroSection />
       </div>
 
+      <div className='w-[70%] h-auto'>
+        <SkillCardSection />
+      </div>
+
+      <div className='w-[70%]'>
+        <AboutUS />
+      </div>
+
+      <div className='w-[70%]'>
+        <Service />
+      </div>
 
 
 {/* 1E1345 */}

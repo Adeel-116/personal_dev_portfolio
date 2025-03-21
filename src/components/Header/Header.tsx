@@ -17,8 +17,6 @@ function Header() {
         )
     }, [])
 
-    console.log(scrollPosition)
-
     const headerText = {
         text: ["Home", "About", "Services", "Portfolio", "Blogs", "Contact"],
         icons: [<BsFacebook />, <FaLinkedinIn />, <LuGithub />],
