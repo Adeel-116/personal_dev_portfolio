@@ -6,6 +6,8 @@ import SkillCardSection from './About/SkillCardSection';
 import AboutUS from './About/AboutUS';
 import SkillSection from './SkillsSection/SkillSection';
 import Service from './services/Service';
+import PortfolioSection from './portfolio-section/PortfolioSection';
+import Testimonials from './testimonial/Testimonials';
 
 function ImageComponent() {
  
@@ -33,8 +35,12 @@ function ImageComponent() {
         <AboutUS />
       </div>
 
-      <div className='w-[70%]'>
+      {/* <div className='w-[70%]'>
         <Service />
+      </div> */}
+
+      <div className='w-[70%]'>
+        <Testimonials />
       </div>
 
 
