@@ -6,7 +6,7 @@ import SkillCardSection from './About/SkillCardSection';
 import AboutUS from './About/AboutUS';
 import Contact from './Contact/contact';
 import NewsLetter from './newsLetter/NewsLetter';
-
+import Footer from './Footer/Footer';
 function ImageComponent() {
  
 
@@ -36,7 +36,7 @@ function ImageComponent() {
       </div> */}
 
       <div className='w-[70%]'>
-        <NewsLetter />
+        <Footer />
       </div>
 
 

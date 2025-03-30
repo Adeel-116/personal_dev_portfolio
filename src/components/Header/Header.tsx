@@ -1,4 +1,4 @@
-import Logo from "../../assets/logo.png"
+import Logo from "../../assets/logo4.jpeg"
 import { BsFacebook } from "react-icons/bs";
 import { FaLinkedinIn } from "react-icons/fa";
 import { LuGithub } from "react-icons/lu";
