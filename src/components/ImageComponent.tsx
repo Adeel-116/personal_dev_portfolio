@@ -15,7 +15,7 @@ function ImageComponent() {
       className="w-full h-[500vh] flex flex-col items-center"
       style={{ backgroundImage: "url('/src/assets/backGroundImage.jpg')", width: "100%", backgroundSize: "fit" }}
     >
-      <div className='w-full justify-center items-center'>
+      <div className='w-full'>
       <Header />
       </div>
   

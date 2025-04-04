@@ -27,15 +27,15 @@ function HeroSection() {
   return (
     <div className="w-full h-screen grid grid-cols-2 items-center">
       <div className="w-full h-auto">
-        <div className="w-full h-auto flex flex-col gap-y-5 justify-center items-start px-2">
+        <div className="w-full h-auto flex flex-col gap-y-4 justify-center items-start px-2">
           <h1 className="text-[7.2rem] leading-none text-white font-semibold">
             James
           </h1>
           <h1 className="text-[7rem] leading-none text-[#00c0ff] font-semibold">
             Smith
           </h1>
-          <h6 className="text-2xl text-white font-medium">
-            Web Designer based in New York
+          <h6 className="text-xl text-white text-left font-medium w-[90%">
+            I am a Software Engineer, with extensive experience in Buidling websites, web applications and mobile application. more than 3 years of experience in this field, also working as a Partime job in Freelancer.com
           </h6>
           <div className="mt-8">
             <Button />
