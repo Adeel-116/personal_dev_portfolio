@@ -1,8 +1,8 @@
 import React, { useState, useRef } from "react";
 import blogPicture from "../../assets/blog.avif";
-function BlogCard() {
+function BlogCard({className}: any) {
     const [transform, setTransform] = useState({ rotateX: 0, rotateY: 0 });
-    const [isHovered, setIsHovered] = useState(false);
+    // const [isHovered, setIsHovered] = useState(false);
     const cardRef = useRef<HTMLDivElement>(null);
 
     const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -15,19 +15,18 @@ function BlogCard() {
 
         const rotateY = ((e.clientX - centerX) / width) * 10;
         const rotateX = -((e.clientY - centerY) / height) * 10;
-        setIsHovered(true);
+        // setIsHovered(true);
         setTransform({ rotateX, rotateY });
     };
-
     const handleMouseLeave = () => {
-        setIsHovered(false);
+        // setIsHovered(false);
         setTransform({ rotateX: 0, rotateY: 0 });
     };
 
     return (
         <div
             ref={cardRef}
-            className={`w-[35%] h-auto flex flex-col gap-y-6 overflow-hidden bg-[#3A2B71] rounded-2xl`}
+            className={`${className} h-auto flex flex-col gap-y-6 overflow-hidden bg-[#3A2B71] rounded-2xl`}
             style={{
                 transform: `perspective(1000px) rotateX(${transform.rotateX}deg) rotateY(${transform.rotateY}deg)`,
                 transition: "transform 0.1s ease-out",
@@ -37,7 +36,7 @@ function BlogCard() {
         >
             <div className="w-full h-auto flex flex-col items-center justify-center">
                 <div className="bloImage ">
-                    <img src={blogPicture} alt="" />
+                    <img src={blogPicture} alt="" className="lg:w-full md:w-full" />
                 </div>
                 <div className="w-full px-10 py-7">
                     <div className="flex gap-x-4">

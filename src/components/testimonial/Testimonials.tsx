@@ -33,7 +33,7 @@ function Testimonials() {
   }, [slideNumber]); // Restart interval when slideNumber changes
 
   return (
-    <div className='w-full flex items-center justify-center flex-col p-5'>
+    <div className='w-full flex items-center justify-center flex-col sm:p-5'>
       <div className='w-full flex flex-col items-center gap-y-2'>
         <h4 className='text-[#00c0ff] text-xl font-medium'>About Me</h4>
         <h1 className='w-full text-white font-semibold text-[3rem]'>What Client Say</h1>
@@ -48,18 +48,18 @@ function Testimonials() {
           {slideArray.map((slide, index) => (
             <div
               key={index}
-              className='w-full  flex-shrink-0 flex flex-col items-center gap-y-10 p-5'
+              className='w-full  flex-shrink-0 flex flex-col items-center sm:gap-y-10 gap-y-5 sm:p-5 px-3'
             >
-              <div className='image w-[90px]'>
+              <div className='image sm:w-[90px] w-[50px]'>
                 <img src={quote} alt="Quote" />
               </div>
 
               <div>
-                <span className='text-[30px] italic leading-[1.6] text-white'>{slide.content}</span>
+                <span className='sm:text-[30px] text-[16px] italic sm:leading-[1.6] text-white'>{slide.content}</span>
               </div>
 
-              <div className='w-[85%] h-auto flex flex-row justify-center items-center'>
-                <div className="w-[60px] h-[60px] bg-center rounded-full">
+              <div className='sm:w-[85%] w-[90%]  h-auto flex flex-row justify-center items-center'>
+                <div className="sm:w-[60px] sm:h-[60px] w-[70px] h-[70px] bg-center rounded-full">
                   <img
                     className="w-full h-full object-cover rounded-full"
                     src={testimonialPicture}
@@ -67,8 +67,8 @@ function Testimonials() {
                   />
                 </div>
                 <div className='py-1 px-2'>
-                  <h1 className='font-semibold text-white text-left text-xl'>Jenny Wilson</h1>
-                  <p className='md:text-[14px] text-[13px] font-medium text-gray-300 text-lg'>Founder & CEO of TechyZone</p>
+                  <h1 className='font-semibold text-white text-[13px] text-left text-xl'>Jenny Wilson</h1>
+                  <p className='md:text-[14px] sm:text-[13px] text-[13px] text-left  font-medium text-white '>Founder & CEO of TechyZone</p>
                 </div>
               </div>
             </div>

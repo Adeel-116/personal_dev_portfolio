@@ -1,8 +1,8 @@
-import React from 'react'
+
 
 function ProgressBar() {
   return (
-    <div className='w-full h-auto p-5'>
+    <div className='sm:w-[41%] w-[90%]  h-auto'>
 
         <div className='progressBar'>
                 <span className='text-white flex justify-between'>

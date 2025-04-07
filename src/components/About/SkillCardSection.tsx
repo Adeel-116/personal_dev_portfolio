@@ -1,12 +1,11 @@
-import React from "react";
 import SkillCard from "./SkillCard";
 
 const SkillCardSection = () => {
   return (
-    <div className="w-full flex justify-center items-center gap-5">
-      <SkillCard className="flex-1" />
-      <SkillCard className="flex-1" />
-      <SkillCard className="flex-1" />
+    <div className="w-full flex lg:flex-row justify-center  items-center xl:gap-5 lg:gap-3 gap-y-5 flex-col">
+      <SkillCard children="lg:flex-1 w-[95%] " />
+      <SkillCard children="lg:flex-1 w-[95%] " />
+      <SkillCard children="lg:flex-1 w-[95%] " />
     </div>
   );
 };

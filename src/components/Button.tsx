@@ -7,7 +7,7 @@ export default function() {
     }, [])
 
     return (
-        <div className="w-fit relative rounded-full bg-[#00c0ff] overflow-hidden px-9 py-3 group"
+        <div className="w-fit relative rounded-full bg-[#00c0ff] overflow-hidden sm:px-9 sm:py-3 px-5 py-3 group"
             onMouseEnter={() => setAnimation(true)}
             onMouseLeave={() => setAnimation(false)}
         >
@@ -16,7 +16,7 @@ export default function() {
 
             {/* Text */}
             <div className="relative z-10">
-                <p className="font-medium 2xl:text-[0.9rem] xl:text-[0.8rem]"
+                <p className="font-medium 2xl:text-[0.9rem] text-[0.9rem]"
                     style={{color: animation ? "black" : "#ffff"}}
                 >
                     Get Connected

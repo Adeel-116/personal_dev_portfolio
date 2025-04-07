@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import monitor from "../../assets/monitor.png";
-function Service() {
+function Service({className}: any) {
     const [transform, setTransform] = useState({ rotateX: 0, rotateY: 0 });
     const [isHovered, setIsHovered] = useState(false);
     const cardRef = useRef<HTMLDivElement>(null);
@@ -27,7 +27,7 @@ function Service() {
     return (
         <div
             ref={cardRef}
-            className={`w-[30%] h-auto flex flex-col gap-y-6 px-[60px] py-[66px]  bg-[#3A2B71] rounded-2xl`}
+            className={`${className} h-auto flex flex-col gap-y-6 md:px-[50px] md:py-[70px] px-[40px] py-[50px] bg-[#3A2B71] rounded-2xl`}
             style={{
                 transform: `perspective(1000px) rotateX(${transform.rotateX}deg) rotateY(${transform.rotateY}deg)`,
                 transition: "transform 0.1s ease-out",
