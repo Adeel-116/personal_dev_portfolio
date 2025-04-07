@@ -14,7 +14,8 @@ function App() {
 
 
   return (
-    <>
+    <>  
+    
        {loading ? <LoadingScreen /> : <ImageComponent />}
     </>
   )

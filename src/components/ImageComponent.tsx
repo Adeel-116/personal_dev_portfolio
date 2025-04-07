@@ -16,7 +16,7 @@ function ImageComponent() {
 
   return (
     <div
-      className="w-full h-auto flex flex-col items-center bg-amber-800"
+      className="w-full h-auto flex flex-col items-center"
        style={{ backgroundImage: `url(${backGroundImage})`, width: "100%", backgroundSize: "fit", height: 'auto' }}
     >
 
