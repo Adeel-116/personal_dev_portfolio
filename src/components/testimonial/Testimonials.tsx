@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import quote from '../../assets/quote.png';
 import testimonialPicture from '../../assets/testimonialPicture.png';
 import { IoChevronForwardCircleOutline } from "react-icons/io5";
+import TextHeading from '../TextHeading';
 
 function Testimonials() {
   const [slideNumber, setSlideNumber] = React.useState(0);
@@ -34,10 +35,7 @@ function Testimonials() {
 
   return (
     <div className='w-full flex items-center justify-center flex-col sm:p-5'>
-      <div className='w-full flex flex-col items-center gap-y-2'>
-        <h4 className='text-[#00c0ff] text-xl font-medium'>About Me</h4>
-        <h1 className='w-full text-white font-semibold text-[3rem]'>What Client Say</h1>
-      </div>
+      <TextHeading heading="Testimonials" text="What Our Clients Say" />
 
       {/* Slides Container */}
       <div className='w-[90%]  overflow-hidden relative'>

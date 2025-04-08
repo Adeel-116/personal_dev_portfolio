@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { IoLocationSharp } from "react-icons/io5";
 import Button from "../Button";
+import TextHeading from "../TextHeading";
 function Contact() {
   const [formData, setFormData] = useState({
     name: "",
@@ -10,9 +11,13 @@ function Contact() {
     message: "",
   });
   console.log(setFormData)
-  return (
+  return ( 
+    <>
+    <div className="">
+      <TextHeading heading="Contact" text="I want to hear from you" />
+    </div>
+    <div className="w-full h-auto flex lg:flex-row flex-col justify-center items-center mt-2">
     
-    <div className="w-full h-auto flex lg:flex-row flex-col justify-center items-center">
       <div className="left lg:w-1/2 sm:w-[80%] w-[95%] h-auto justify-center items-center flex flex-col gap-y-3 p-5">
         <div className="w-full h-auto flex flex-row">
           <div className="w-fit sm:py-7 sm:px-7 p-3 bg-[#00c0ff] rounded-full">
@@ -112,6 +117,7 @@ function Contact() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 

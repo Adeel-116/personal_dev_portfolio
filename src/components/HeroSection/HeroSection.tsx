@@ -25,16 +25,16 @@ function HeroSection() {
   };
 
   return (
-    <div className="w-full lg:h-screen h-auto grid lg:grid-cols-2 grid-cols-1 lg:items-center lg:py-0 sm:py-30 py-40">
+    <div className="w-full xl:h-screen h-auto grid lg:grid-cols-2 grid-cols-1 lg:items-center xl:py-0 lg:py-40 sm:py-30 py-40">
       <div className="w-full h-auto order-2 lg:order-1 lg:mt-0 mt-5" >
         <div className="w-full h-auto flex flex-col gap-y-4 justify-center items-center lg:items-start px-2">
-          <h1 className="xl:text-[5.2rem] sm:text-[4rem] text-[2.5rem] leading-none text-white font-semibold">
+          <h1 className="2xl:text-[4.5rem] sm:text-[4rem] text-[2.5rem] leading-none text-white font-semibold">
             Muhammad 
           </h1>
-          <h1 className="xl:text-[5.2rem] sm:text-[4.2rem] text-[2.7rem] leading-none text-[#00c0ff] font-semibold">
+          <h1 className="2xl:text-[4.5rem] sm:text-[4rem] text-[2.7rem] leading-none text-[#00c0ff] font-semibold">
             Adeel
           </h1>
-          <h6 className="xl:text-xl sm:text-lg text-sm text-white lg:text-left font-medium xl:w-[100%] lg:w-[90%] md:w-[75%]">
+          <h6 className="2xl:text-xl sm:text-[15px] text-sm text-white lg:text-left font-medium xl:w-[100%] lg:w-[90%] md:w-[75%]">
             I am a Software Engineer, with extensive experience in Buidling websites, web applications and mobile application. more than 3 years of experience in this field, also working as a Partime job in Freelancer.com
           </h6>
           <div className="xl:mt-8 sm:mt-4 flex sm:justify-center">
@@ -50,7 +50,7 @@ function HeroSection() {
       >
         <img
           src={Avatar}
-          className="xl:w-[80%] lg:w-[100%] w-[50%]"
+          className="xl:w-[80%] lg:w-[90%] w-[50%]"
           alt=""
           style={{
             transform: `perspective(1000px) rotateX(${transform.rotateX}deg) rotateY(${transform.rotateY}deg)`,
