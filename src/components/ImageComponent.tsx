@@ -52,9 +52,12 @@ function ImageComponent() {
         <Testimonials />
       </div>  
 
-      <div className='2xl:w-[75%] xl:w-[85%] sm:w-[90%] w-[95%]'>
+     
+      <div className="2xl:w-[75%] xl:w-[85%] sm:w-[90%] w-[95%]">
         <Blog />
-      </div> 
+      </div>
+   
+
       <div className='2xl:w-[75%] xl:w-[85%] sm:w-[90%] w-[95%]'>
         <Contact />
       </div> 
