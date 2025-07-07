@@ -4,11 +4,6 @@
   font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 400;
-
-  /* color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424; */
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -34,15 +29,6 @@
 }
 
 
-
-
-.verticalAnimation {
-  width: 0.5px; 
-  height: 0; 
-  background-color: #1D1C4E;
-  animation: expandVertical 1s  cubic-bezier(.2,.78,.79,.34) forwards,
-             expandHorizontal 1s cubic-bezier(.54,.27,0,.98) 1s forwards;
-}
 
 @keyframes expandVertical {
   0% {

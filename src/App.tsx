@@ -12,8 +12,6 @@ function App() {
         }, 2000)
     }, [])
 
-
-
   return (
     <>  
    
