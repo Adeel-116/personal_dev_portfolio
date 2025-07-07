@@ -54,7 +54,7 @@ function Header() {
     const headerStyles = useMemo(() => ({
         backgroundColor: isScrolled ? "#1E1345" : "transparent",
         transform: isScrolled ? "scaleY(0.9)" : "scaleY(1)",
-        padding: isScrolled ? "30px 0px 35px 0px" : "45px 0px 50px 0px",
+        padding: isScrolled ? "20px 0px 25px 0px" : "35px 0px 40px 0px",
     }), [isScrolled]);
 
     const toggleMenu = useCallback(() => {

@@ -11,6 +11,7 @@ import ServiceSection from './services/ServiceSection';
 import Testimonials from './testimonial/Testimonials';
 import Blog from './Blog/Blog';
 import backGroundImage from '../assets/backGroundImage.jpg';
+import Portfolio from './portfolio-section/PortfolioSection';
 function ImageComponent() {
  
 
@@ -40,9 +41,9 @@ function ImageComponent() {
         <SkillSection />
       </div> 
     
-      {/* <div className='2xl:w-[75%] xl:w-[85%] sm:w-[90%] justify-center items-center'>
-      <PortfolioSection />
-      </div> */}
+      <div className='2xl:w-[75%] xl:w-[85%] sm:w-[90%] justify-center items-center'>
+      <Portfolio />
+      </div>
 
       <div className='2xl:w-[75%] xl:w-[85%] sm:w-[90%] w-[95%]'>
         <ServiceSection /> 
