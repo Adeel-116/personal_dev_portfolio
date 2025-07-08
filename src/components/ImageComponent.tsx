@@ -27,11 +27,7 @@ function ImageComponent() {
    
       <div className='2xl:w-[75%] xl:w-[85%] sm:w-[90%] w-[95%] justify-center items-center'> 
         <HeroSection /> 
-      </div> 
- 
-      <div className='2xl:w-[75%] xl:w-[85%] sm:w-[90%] w-[95%] h-auto'> 
-        <SkillCardSection /> 
-      </div> 
+      </div>  
  
       <div className='2xl:w-[75%] xl:w-[85%] sm:w-[90%] w-[95%] '> 
         <AboutUS /> 

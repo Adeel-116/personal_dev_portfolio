@@ -1,9 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
-import { FaGlobe, FaCode, FaMobileAlt, FaPaintBrush, FaExternalLinkAlt, FaGithub, FaEye, FaPaperPlane } from "react-icons/fa";
+import { FaGlobe, FaCode, FaMobileAlt, FaPaintBrush, FaGithub, FaEye, } from "react-icons/fa";
 
-// Since we can't import GSAP directly, we'll simulate the animations with CSS transitions
-// In a real implementation, you would use: import gsap from "gsap";
-
+//
 const portfolioData = [
   { id: 1, title: "E-Commerce Platform", description: "Full-stack e-commerce solution with advanced features and seamless user experience.", image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&h=400&fit=crop", technologies: ["React", "Node.js", "MongoDB", "Stripe", "Tailwind"], category: "web", liveUrl: "#", githubUrl: "#", featured: true },
   { id: 2, title: "AI-Powered Mobile App", description: "Revolutionary mobile application with machine learning capabilities and intuitive design.", image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=400&fit=crop", technologies: ["React Native", "TensorFlow", "Firebase", "Redux"], category: "mobile", liveUrl: "#", githubUrl: "#", featured: true },
@@ -81,8 +79,8 @@ export default function Portfolio() {
   const [activeCategory, setActiveCategory] = useState("all");
   const [filteredProjects, setFilteredProjects] = useState(portfolioData);
   const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef(null);
-  const projectsRef = useRef([]);
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const projectsRef = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     if (activeCategory === "all") {
@@ -155,7 +153,7 @@ export default function Portfolio() {
           {filteredProjects.map((project, index) => (
             <div
               key={project.id}
-              ref={el => projectsRef.current[index] = el}
+              ref={el => { projectsRef.current[index] = el; }}
               className={`group relative bg-white/5 backdrop-blur-sm rounded-3xl overflow-hidden shadow-2xl border border-white/10 hover:border-cyan-400/50 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
@@ -238,7 +236,7 @@ export default function Portfolio() {
       </section>
       
       {/* Custom styles for animations */}
-      <style jsx>{`
+      <style>{`
         @keyframes float {
           0%, 100% { transform: translateY(0) rotate(0deg); }
           50% { transform: translateY(-20px) rotate(180deg); }

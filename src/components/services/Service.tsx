@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, JSX } from "react";
 import { FaDesktop, FaMobileAlt, FaCode, FaPaintBrush, FaShoppingCart, FaTools } from "react-icons/fa";
 
 interface ServiceProps {

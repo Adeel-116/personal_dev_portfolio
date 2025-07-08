@@ -2,22 +2,21 @@ import Button from "../Button";
 import About from "../../assets/aboutUS.webp";
 import About2 from "../../assets/about2.webp";
 import TextHeading from "../TextHeading";
+
 function AboutUS() {
   return (
     <div className="w-full h-auto md:py-30">
- 
-        <TextHeading
-          heading="About Me"
-          text={
-            <>
-              A Passionate Developer <br />
-              Who Loves to Code
-            </>
-          }
-        />
-   
+      <TextHeading
+        heading="About Me"
+        text={
+          <>
+            A Passionate Developer <br />
+            Who Loves to Code
+          </>
+        }
+      />
 
-      <div className="w-full flex lg:flex-row flex-col ">
+      <div className="w-full flex lg:flex-row flex-col">
         <div className="relative lg:w-1/2 w-full h-auto p-4 flex flex-col gap-y-5 items-center">
           <div className="w-full flex 2xl:justify-end justify-center">
             <div className="w-fit flex items-center justify-end">
@@ -48,17 +47,17 @@ function AboutUS() {
               </div>
             </div>
             <div className="w-fit h-auto flex xl:justify-end justify-center">
-              <img src={About} alt="" className="xl:w-[90%] w-[100%]" />
+              <img src={About} alt="Muhammad Adeel" className="xl:w-[90%] w-[100%]" />
             </div>
           </div>
 
           <div className="w-full xl:flex h-auto py-1 hidden justify-end xl:px-20 items-center">
             <div className="w-fit flex justify-center items-center border-l-9 border-[#00c0ff]">
               <p className="2xl:text-[4rem] text-[3rem] font-semibold px-3 text-white">
-                1+
+                4+
               </p>
               <p className="sm:text-[17px] text-[16px] text-left font-semibold xl:w-16 text-white">
-                Successful Years
+                Years Experience
               </p>
             </div>
           </div>
@@ -68,7 +67,7 @@ function AboutUS() {
             <img
               className="rounded-xl overflow-hidden"
               src={About2}
-              alt=""
+              alt="Muhammad Adeel working"
               width="50%"
             />
           </div>
@@ -76,20 +75,22 @@ function AboutUS() {
 
         <div className="lg:w-1/2 w-full h-auto 2xl:pl-20 py-4 flex flex-col lg:items-start items-center justify-center gap-y-5 lg:text-left text-center">
           <h4 className="text-[#00c0ff] text-xl font-medium">About Me</h4>
-          <div className="lg:text-left text-center lg:w-auto w-[80%] text-[#9D96B6] text-[16px] sm:text-[18px]">
+          
+          <div className="lg:text-left text-center lg:w-auto w-[80%] text-[#9D96B6] text-[16px] sm:text-[18px] leading-relaxed">
+            <p className="mb-4">
+              I'm <span className="text-[#00c0ff] font-semibold">Muhammad Adeel</span>, a passionate Computer Science student currently in my final year. Alongside my academic journey, I'm actively working on my final year project and gaining hands-on experience in the tech industry.
+            </p>
+            
+            <p className="mb-4">
+              I work as a React.js / React Native developer with 4+ years of experience in Software Engineering, building web applications, designing UI/UX, and developing mobile applications using React and Flutter. I have a strong focus on building scalable and user-friendly applications.
+            </p>
+            
+            <p className="mb-4">
+              I've developed 3+ cross-platform mobile apps using React Native and have experience building full-stack websites with both frontend and backend technologies. My technical expertise includes Frontend (React.js, Next.js, HTML, CSS, Tailwind CSS, JavaScript, TypeScript), Backend (Node.js, Express.js, RESTful APIs), Databases (MongoDB, PostgreSQL, SQL), and Mobile Development (React Native, Flutter, and basic knowledge of native Android using XML and Java).
+            </p>
+            
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Non
-              placeat, illo asperiores aperiam expedita ipsam id, nostrum rerum
-              harum nesciunt assumenda eum quos velit illum tenetur perferendis
-              doloribus fuga sapiente accusamus laborum quia esse saepe
-              voluptates. Sit, unde et sapiente quasi ea accusamus tenetur
-              tempora voluptatum quos eligendi at quas molestiae fugit deserunt
-              omnis asperiores iure blanditiis accusantium laborum vitae qui
-              natus! Porro nemo perspiciatis voluptate a velit saepe quisquam
-              odio, tempora facere, nesciunt, ea ut ad labore. Exercitationem
-              officia corporis architecto necessitatibus odit ad, quas rerum
-              facilis dicta aliquam optio obcaecati vitae eius? Autem quo
-              similique laborum veritatis repellat.
+              I'm always eager to learn, improve, and contribute to impactful projects that make a difference in people's lives.
             </p>
           </div>
 

@@ -85,7 +85,7 @@ function Header() {
                 {/* Desktop Navigation */}
                 <nav className="lg:flex hidden gap-x-8 justify-end items-center">
                     <div className="flex xl:gap-x-7 lg:gap-x-6">
-                        {navigationData.text.map((text, index) => (
+                        {navigationData.text.map((text) => (
                             <button 
                                 key={text} 
                                 className="text-lg text-white hover:text-blue-300 transition-colors duration-200 cursor-pointer"
