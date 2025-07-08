@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FaGlobe, FaCode, FaMobileAlt, FaPaintBrush, FaGithub, FaEye, } from "react-icons/fa";
 
 //

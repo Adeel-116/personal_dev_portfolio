@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import quote from '../../assets/quote.png';
 import { IoChevronForwardCircleOutline } from "react-icons/io5";
 import TextHeading from '../TextHeading';

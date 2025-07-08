@@ -1,8 +1,7 @@
-// import image from '../assets/backGroundImage.jpg'; 
+
 import HeroSection from './HeroSection/HeroSection'; 
 import MouseCircle from './MouseCircle'; 
 import Header from './Header/Header'; 
-import SkillCardSection from './About/SkillCardSection'; 
 import AboutUS from './About/AboutUS'; 
 import Contact from './Contact/Contact'; 
 import NewsLetter from './newsLetter/NewsLetter'; 

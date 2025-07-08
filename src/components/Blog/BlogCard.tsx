@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { useTransform } from "../ContextAPI/TransformContext"; // Import the context hook
 import blogPicture from "../../assets/blog.avif";
 
