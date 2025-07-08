@@ -2,7 +2,7 @@
 
 interface textHeadingProps {
     heading: string;
-    text: string;
+    text: React.ReactNode; 
 }
 
 function TextHeading({heading , text}:textHeadingProps) {
