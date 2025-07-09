@@ -3,7 +3,7 @@ import ImageComponent from './components/ImageComponent'
 import {useState, useEffect} from 'react'
 import LoadingScreen from './components/LoadingScreen'
 function App() {
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(true)
     useEffect(() => {
         setLoading(true)
         setTimeout(() => {
