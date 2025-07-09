@@ -7,8 +7,20 @@ interface Transform {
   rotateY: number;
 }
 
-// GSAP will be loaded via CDN
-declare const gsap: any;
+// Type definition for GSAP
+interface GSAPInstance {
+  timeline: (config?: any) => any;
+  fromTo: (target: any, from: any, to: any) => unknown;
+  to: (target: any, vars: any) => any;
+  killAll: () => void;
+}
+
+// Extend Window interface to include gsap
+declare global {
+  interface Window {
+    gsap?: GSAPInstance;
+  }
+}
 
 const HeroSection = () => {
   const [transform, setTransform] = useState<Transform>({ rotateX: 0, rotateY: 0 });
@@ -16,7 +28,7 @@ const HeroSection = () => {
   const [gsapLoaded, setGsapLoaded] = useState(false);
   
   const imageContainerRef = useRef<HTMLDivElement>(null);
-  const rafRef = useRef<number>();
+  const rafRef = useRef<number | null>(null);
   const firstNameRef = useRef<HTMLHeadingElement>(null);
   const lastNameRef = useRef<HTMLHeadingElement>(null);
   const descriptionRef = useRef<HTMLParagraphElement>(null);
@@ -31,15 +43,32 @@ const HeroSection = () => {
   // Load GSAP
   useEffect(() => {
     const loadGSAP = async () => {
-      if (typeof gsap !== 'undefined') {
+      // Check if GSAP is already loaded
+      if (window.gsap) {
         setGsapLoaded(true);
         return;
       }
 
-      const script = document.createElement('script');
-      script.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js';
-      script.onload = () => setGsapLoaded(true);
-      document.head.appendChild(script);
+      try {
+        const script = document.createElement('script');
+        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js';
+        script.async = true;
+        
+        script.onload = () => {
+          // Double check that GSAP is available
+          if (window.gsap) {
+            setGsapLoaded(true);
+          }
+        };
+        
+        script.onerror = () => {
+          console.error('Failed to load GSAP');
+        };
+        
+        document.head.appendChild(script);
+      } catch (error) {
+        console.error('Error loading GSAP:', error);
+      }
     };
 
     loadGSAP();
@@ -47,8 +76,9 @@ const HeroSection = () => {
 
   // GSAP Animations
   useEffect(() => {
-    if (!gsapLoaded) return;
+    if (!gsapLoaded || !window.gsap) return;
 
+    const gsap = window.gsap;
     const tl = gsap.timeline({ delay: 0.5 });
 
     // Text animations
@@ -343,7 +373,9 @@ const HeroSection = () => {
 
     // Cleanup function
     return () => {
-      tl.kill();
+      if (tl && typeof tl.kill === 'function') {
+        tl.kill();
+      }
     };
   }, [gsapLoaded]);
 
