@@ -1,25 +1,12 @@
-import './App.css'
-import ImageComponent from './components/ImageComponent'
-import {useState, useEffect} from 'react'
-import LoadingScreen from './components/LoadingScreen'
-function App() {
-    const [loading, setLoading] = useState(true)
-    useEffect(() => {
-        setLoading(true)
-        setTimeout(() => {
-            setLoading(false)
-        }, 2000)
-    }, [])
 
+import ImageComponent from "./components/ImageComponent";
+
+function App() {
   return (
-    <>  
    
-       {loading ? <LoadingScreen /> : <ImageComponent />}
+        <ImageComponent />
       
-    </>
-  )
+  );
 }
 
-
-
-export default App
+export default App;

@@ -2,14 +2,13 @@ import { useRef } from "react";
 import { useTransform } from "../ContextAPI/TransformContext"; // Import the context hook
 import blogPicture from "../../assets/blog.avif";
 
-// Define prop types for BlogCard
 interface BlogCardProps {
   className: string;
-  id: string; // Define the id as a string
+  id: string;
 }
 
 function BlogCard({ className, id }: BlogCardProps) {
-  const { transform, handleMouseMove, handleMouseLeave } = useTransform(); // Access the global state
+  const { transform, handleMouseMove, handleMouseLeave } = useTransform(); 
   const cardRef = useRef<HTMLDivElement>(null);
 
   // Get the transform values for the current card using its id

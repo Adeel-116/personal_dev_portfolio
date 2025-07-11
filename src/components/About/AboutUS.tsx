@@ -5,7 +5,7 @@ import TextHeading from "../TextHeading";
 
 function AboutUS() {
   return (
-    <div className="w-full h-auto md:py-30">
+    <div className="w-full h-auto md:py-30 text-center">
       <TextHeading
         heading="About Me"
         text={

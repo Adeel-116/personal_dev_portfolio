@@ -33,12 +33,11 @@ export const TransformProvider: React.FC<any> = ({ children }) => {
     // Update the transform state for the specific id
     setTransform((prevState) => ({
       ...prevState,
-      [id]: { rotateX, rotateY }, // Store the rotate values for this id
+      [id]: { rotateX, rotateY }, 
     }));
   };
 
   const handleMouseLeave = (id: string) => {
-    // Reset the transform state for the specific id
     setTransform((prevState) => ({
       ...prevState,
       [id]: { rotateX: 0, rotateY: 0 },

@@ -1,5 +1,5 @@
 import { useState, useRef, useCallback, useMemo, useEffect } from "react";
-import Avatar from "../../assets/avatar.png";
+import Avatar from "../../assets/image.png"
 import Button from "../Button";
 
 interface Transform {
