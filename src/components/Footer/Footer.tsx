@@ -1,8 +1,7 @@
-import { FaLinkedinIn, FaTwitter, FaInstagram, FaBriefcase, FaBlog, FaHeart } from "react-icons/fa";
+import { FaLinkedinIn, FaTwitter, FaInstagram, FaHeart } from "react-icons/fa";
 import { LuGithub } from "react-icons/lu";
 import { MdOutlineMail, MdLocationOn, MdPhone } from "react-icons/md";
-import { BiWorld } from "react-icons/bi";
-import { IoHome, IoPersonOutline, IoArrowUp } from "react-icons/io5";
+import { IoArrowUp } from "react-icons/io5";
 import { useEffect, useState, useCallback, useRef } from "react";
 import Logo from "../../assets/bg.png";
 
@@ -14,7 +13,7 @@ const Footer = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [mousePosX, setMousePosX] = useState(0);
     const [mousePosY, setMousePosY] = useState(0);
-    const footerRef = useRef<HTMLElement | null>(null);
+    const footerRef = useRef(null);
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -33,7 +32,7 @@ const Footer = () => {
     }, []);
 
     useEffect(() => {
-        const handleMouseMove = (e: MouseEvent) => {
+        const handleMouseMove = (e) => {
             if (footerRef.current) {
                 const rect = footerRef.current.getBoundingClientRect();
                 setMousePosX(e.clientX - rect.left);
@@ -47,7 +46,7 @@ const Footer = () => {
 
     const scrollToTop = useCallback(() => window.scrollTo({ top: 0, behavior: 'smooth' }), []);
 
-    const handleSubscribe = useCallback(async (e: React.FormEvent) => {
+    const handleSubscribe = useCallback(async (e) => {
         e.preventDefault();
         if (!email.includes('@')) return;
         setIsLoading(true);
@@ -58,18 +57,18 @@ const Footer = () => {
         setTimeout(() => setIsSubscribed(false), 3000);
     }, [email]);
 
-    const handleNavClick = useCallback((e: React.MouseEvent, href: string) => {
+    const handleNavClick = useCallback((e, href) => {
         e.preventDefault();
         document.querySelector(href)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }, []);
 
     const navigationLinks = [
-        { name: "Home", icon: <IoHome />, href: "#home" },
-        { name: "About", icon: <IoPersonOutline />, href: "#about" },
-        { name: "Services", icon: <BiWorld />, href: "#services" },
-        { name: "Portfolio", icon: <FaBriefcase />, href: "#portfolio" },
-        { name: "Blogs", icon: <FaBlog />, href: "#blogs" },
-        { name: "Contact", icon: <MdOutlineMail />, href: "#contact" }
+        { name: "Home", href: "#home" },
+        { name: "About", href: "#about" },
+        { name: "Services", href: "#services" },
+        { name: "Portfolio", href: "#portfolio" },
+        { name: "Blogs", href: "#blogs" },
+        { name: "Contact", href: "#contact" }
     ];
 
     const socialLinks = [
@@ -99,18 +98,25 @@ const Footer = () => {
                     <div className="absolute w-20 h-20 bg-gradient-to-r from-[#00C0FF] to-purple-400 rounded-full blur-2xl opacity-20" style={{ left: mousePosX - 40, top: mousePosY - 40 }}></div>
                 </div>
 
-                <div className="relative z-10 2xl:w-[75%] xl:w-[85%] sm:w-[85%] w-[95%] mx-auto py-16">
-                    <div className={`grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-8 mb-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+                    <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                         
                         {/* Logo & Description */}
-                        <div className="lg:col-span-1 md:col-span-2 flex flex-col items-center">
-                            <img src={Logo} alt="Logo" className="w-[170px] h-auto object-contain mb-2" />
-                            <p className="text-gray-300 mb-2 leading-relaxed text-center">
+                        <div className="sm:col-span-2 lg:col-span-1 flex flex-col items-center text-center">
+                            <img src={Logo} alt="Logo" className="w-32 sm:w-40 lg:w-44 h-auto object-contain mb-4" />
+                            <p className="text-gray-300 mb-6 leading-relaxed text-sm sm:text-base max-w-xs">
                                 A passionate developer crafting creative digital solutions and seamless user experiences.
                             </p>
-                            <div className="flex space-x-4">
+                            <div className="flex space-x-3 sm:space-x-4">
                                 {socialLinks.map((social) => (
-                                    <a key={social.name} href={social.href} target="_blank" rel="noopener noreferrer" className={`text-2xl p-3 rounded-full bg-white/10 hover:scale-110 transition-all duration-300 ${social.color}`}>
+                                    <a 
+                                        key={social.name} 
+                                        href={social.href} 
+                                        target="_blank" 
+                                        rel="noopener noreferrer" 
+                                        className={`text-xl sm:text-2xl p-2 sm:p-3 rounded-full bg-white/10 hover:scale-110 transition-all duration-300 ${social.color}`}
+                                        aria-label={social.name}
+                                    >
                                         {social.icon}
                                     </a>
                                 ))}
@@ -119,13 +125,16 @@ const Footer = () => {
 
                         {/* Quick Links */}
                         <div className="transition-all duration-1000 delay-200">
-                            <h4 className="text-xl font-semibold mb-6 text-[#00C0FF] text-center">Quick Links</h4>
-                            <ul className="space-y-3">
+                            <h4 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6 text-[#00C0FF] text-center sm:text-left">Quick Links</h4>
+                            <ul className="space-y-2 sm:space-y-3">
                                 {navigationLinks.map((link) => (
-                                    <li key={link.name} className="flex justify-center">
-                                        <a href={link.href} onClick={(e) => handleNavClick(e, link.href)} className="flex items-center gap-3 text-gray-300 hover:text-[#00C0FF]">
-                                            <span className="text-lg">{link.icon}</span>
-                                            <span>{link.name}</span>
+                                    <li key={link.name} className="flex justify-center sm:justify-start">
+                                        <a 
+                                            href={link.href} 
+                                            onClick={(e) => handleNavClick(e, link.href)} 
+                                            className="text-gray-300 hover:text-[#00C0FF] transition-colors duration-300 text-sm sm:text-base py-1"
+                                        >
+                                            {link.name}
                                         </a>
                                     </li>
                                 ))}
@@ -134,12 +143,15 @@ const Footer = () => {
 
                         {/* Contact */}
                         <div className="transition-all duration-1000 delay-400">
-                            <h4 className="text-xl font-semibold mb-6 text-[#00C0FF] text-left">Get In Touch</h4>
-                            <ul className="space-y-4">
+                            <h4 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6 text-[#00C0FF] text-center sm:text-left">Get In Touch</h4>
+                            <ul className="space-y-3 sm:space-y-4">
                                 {contactInfo.map((contact, idx) => (
                                     <li key={idx}>
-                                        <a href={contact.href} className="flex items-center gap-3 text-gray-300 hover:text-[#00C0FF]">
-                                            <span className="text-lg">{contact.icon}</span>
+                                        <a 
+                                            href={contact.href} 
+                                            className="flex items-center justify-center sm:justify-start gap-3 text-gray-300 hover:text-[#00C0FF] transition-colors duration-300 text-sm sm:text-base"
+                                        >
+                                            <span className="text-base sm:text-lg flex-shrink-0">{contact.icon}</span>
                                             <span className="break-all">{contact.text}</span>
                                         </a>
                                     </li>
@@ -149,21 +161,34 @@ const Footer = () => {
 
                         {/* Newsletter */}
                         <div className="transition-all duration-1000 delay-600">
-                            <h4 className="text-xl font-semibold mb-6 text-[#00C0FF] text-left">Stay Updated</h4>
-                            <p className="text-gray-300 mb-4 text-left">Subscribe to get the latest updates and articles.</p>
-                            <div className="flex gap-2">
-                                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Enter your email" className="flex-1 px-4 py-2 bg-white/10 text-white rounded-lg" />
-                                <button onClick={handleSubscribe} className="px-6 py-2 bg-gradient-to-r from-[#00C0FF] to-blue-400 rounded-lg">
+                            <h4 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6 text-[#00C0FF] text-center sm:text-left">Stay Updated</h4>
+                            <p className="text-gray-300 mb-4 text-center sm:text-left text-sm sm:text-base">Subscribe to get the latest updates and articles.</p>
+                            <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-2 sm:gap-3">
+                                <input 
+                                    type="email" 
+                                    value={email} 
+                                    onChange={(e) => setEmail(e.target.value)} 
+                                    placeholder="Enter your email" 
+                                    className="flex-1 px-3 sm:px-4 py-2 sm:py-3 bg-white/10 text-white rounded-lg placeholder:text-gray-400 border border-white/20 focus:border-[#00C0FF] focus:outline-none transition-colors duration-300 text-sm sm:text-base"
+                                    required
+                                />
+                                <button 
+                                    type="submit"
+                                    disabled={isLoading}
+                                    className="px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-[#00C0FF] to-blue-400 rounded-lg hover:from-blue-400 hover:to-[#00C0FF] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base font-medium whitespace-nowrap"
+                                >
                                     {isLoading ? 'Loading...' : isSubscribed ? 'Subscribed ✓' : 'Subscribe'}
                                 </button>
-                            </div>
+                            </form>
                         </div>
                     </div>
 
-                    <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-400 to-transparent mb-8"></div>
+                    {/* Separator */}
+                    <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-400 to-transparent mb-6 sm:mb-8"></div>
 
-                    <div className="flex flex-col md:flex-row justify-between items-center">
-                        <div className="flex items-center space-x-2 text-gray-300">
+                    {/* Copyright */}
+                    <div className="flex flex-col sm:flex-row justify-center sm:justify-between items-center gap-4">
+                        <div className="flex items-center space-x-2 text-gray-300 text-sm sm:text-base text-center">
                             <span>© {currentYear} Muhammad Adeel. Developed & Designed by me</span>
                             <FaHeart className="text-red-400 animate-pulse" />
                         </div>
@@ -171,9 +196,13 @@ const Footer = () => {
                 </div>
             </footer>
 
-            {/* Back to Top */}
-            <button onClick={scrollToTop} className={`fixed bottom-8 right-8 p-4 bg-gradient-to-r from-[#00C0FF] to-blue-400 text-white rounded-full shadow-lg transition-all duration-300 ${showBackToTop ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-                <IoArrowUp className="text-xl" />
+            {/* Back to Top Button */}
+            <button 
+                onClick={scrollToTop} 
+                className={`fixed bottom-4 sm:bottom-8 right-4 sm:right-8 p-3 sm:p-4 bg-gradient-to-r from-[#00C0FF] to-blue-400 text-white rounded-full shadow-lg transition-all duration-300 hover:scale-110 z-50 ${showBackToTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'}`}
+                aria-label="Back to top"
+            >
+                <IoArrowUp className="text-lg sm:text-xl" />
             </button>
         </>
     );

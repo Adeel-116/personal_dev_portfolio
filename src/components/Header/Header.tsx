@@ -1,7 +1,7 @@
 import Logo from "../../assets/bg.png";
 import { FaLinkedinIn } from "react-icons/fa";
 import { LuGithub } from "react-icons/lu";
-import { Link } from "react-scroll"; // ✅ react-scroll ka Link
+import { Link } from "react-scroll";
 
 // Icons
 import { RxHamburgerMenu } from "react-icons/rx";
@@ -33,7 +33,7 @@ function Header() {
     const navigationData = useMemo(() => ({
         responsiveIcon: [<IoHome />, <IoPersonOutline />, <BiWorld />, <FaBriefcase />, <FaBlog />, <MdOutlineMail />],
         text: ["Home", "About", "Services", "Portfolio", "Blogs", "Contact"],
-        scrollTargets: ["home", "about", "services", "portfolio", "blogs", "contact"], // ✅ Element names
+        scrollTargets: ["home", "about", "services", "portfolio", "blogs", "contact"],
         icons: [
             { icon: <FaLinkedinIn />, link: "https://linkedin.com", target: "_blank" },
             { icon: <LuGithub />, link: "https://github.com", target: "_blank" },
@@ -43,86 +43,95 @@ function Header() {
     const headerStyles = useMemo(() => ({
         backgroundColor: isScrolled ? "#1E1345" : "transparent",
         transform: isScrolled ? "scaleY(0.9)" : "scaleY(1)",
-        padding: isScrolled ? "20px 0px 25px 0px" : "35px 0px 40px 0px",
+        padding: isScrolled ? "15px 0px 20px 0px" : "20px 0px 25px 0px",
     }), [isScrolled]);
 
     const toggleMenu = useCallback(() => setIsMenuOpen(prev => !prev), []);
     const closeMenu = useCallback(() => setIsMenuOpen(false), []);
 
+    // Close menu when clicking outside or pressing escape
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (isMenuOpen && !event.target.closest('.mobile-menu') && !event.target.closest('.menu-toggle')) {
+                closeMenu();
+            }
+        };
+
+        const handleEscapeKey = (event) => {
+            if (event.key === 'Escape' && isMenuOpen) {
+                closeMenu();
+            }
+        };
+
+        if (isMenuOpen) {
+            document.addEventListener('click', handleClickOutside);
+            document.addEventListener('keydown', handleEscapeKey);
+            document.body.style.overflow = 'hidden'; // Prevent scroll when menu is open
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+
+        return () => {
+            document.removeEventListener('click', handleClickOutside);
+            document.removeEventListener('keydown', handleEscapeKey);
+            document.body.style.overflow = 'unset';
+        };
+    }, [isMenuOpen, closeMenu]);
+
     return (
-        <header className="w-full fixed top-0 left-0 z-[100] flex justify-center transition-all duration-300 origin-top" style={headerStyles}>
-            <div className="2xl:w-[75%] xl:w-[85%] sm:w-[85%] w-[95%] h-auto grid grid-cols-[auto_1fr] items-center">
-                
-                {/* Logo */}
-                <div className="flex justify-center items-center">
-                    <img src={Logo} className="xl:w-[230px] sm:w-[200px] w-[150px]" alt="Logo" loading="lazy" />
-                </div>
-
-                {/* Desktop Navigation */}
-                <nav className="lg:flex hidden gap-x-8 justify-end items-center">
-                    <div className="flex xl:gap-x-7 lg:gap-x-6">
-                        {navigationData.text.map((text, index) => (
-                            <Link
-                               activeClass="active"
-                               isDynamic= {true}
-                                key={text}
-                                to={navigationData.scrollTargets[index]}
-                                smooth={true}
-                                duration={500}
-                                offset={-80}
-                                className="text-lg text-white hover:text-blue-300 transition-colors duration-200 cursor-pointer"
-                            >
-                                {text}
-                            </Link>
-                        ))}
+        <>
+            <header className="w-full fixed top-0 left-0 z-[100] flex justify-center transition-all duration-300 origin-top" style={headerStyles}>
+                <div className="2xl:w-[75%] xl:w-[85%] lg:w-[90%] md:w-[95%] w-[98%] h-auto flex items-center justify-between px-2 sm:px-4">
+                    
+                    {/* Logo */}
+                    <div className="flex justify-center items-center flex-shrink-0">
+                        <img 
+                            src={Logo} 
+                            className="xl:w-[230px] lg:w-[200px] md:w-[180px] sm:w-[160px] w-[120px] h-auto" 
+                            alt="Logo" 
+                            loading="lazy" 
+                        />
                     </div>
 
-                    <div className="w-0.5 h-4 bg-gray-500" role="separator" />
-
-                    <div className="flex gap-x-2">
-                        {navigationData.icons.map(({ icon, link, target }, index) => (
-                            <a
-                                key={index}
-                                href={link}
-                                target={target}
-                                rel="noopener noreferrer"
-                                className="text-white text-lg hover:text-blue-300 transition-colors duration-200 p-2 rounded-full hover:bg-white/10"
-                            >
-                                {icon}
-                            </a>
-                        ))}
+                    {/* Hamburger Menu Button - Now visible on all devices */}
+                    <div className="flex justify-end">
+                        <button
+                            className="menu-toggle text-white sm:text-3xl text-2xl cursor-pointer p-2 rounded-full hover:bg-white/10 transition-all duration-200 hover:scale-110"
+                            onClick={toggleMenu}
+                            aria-label="Toggle menu"
+                            aria-expanded={isMenuOpen}
+                        >
+                            <RxHamburgerMenu />
+                        </button>
                     </div>
-                </nav>
-
-                {/* Mobile Menu Button */}
-                <div className="lg:hidden flex justify-end">
-                    <button
-                        className="text-white text-3xl cursor-pointer p-2 rounded-full hover:bg-white/10 transition-colors duration-200"
-                        onClick={toggleMenu}
-                        aria-label="Toggle mobile menu"
-                        aria-expanded={isMenuOpen}
-                    >
-                        <RxHamburgerMenu />
-                    </button>
                 </div>
+            </header>
 
-                {/* Mobile Menu */}
-                <div
-                    className={`lg:hidden fixed top-0 right-0 h-screen bg-[#00C0FF] z-[200] transition-all duration-300 ease-in-out flex flex-col px-20 justify-center
-                        ${isMenuOpen ? 'translate-x-0 w-[40%] opacity-100' : 'translate-x-full w-0 opacity-0'}`}
-                    aria-hidden={!isMenuOpen}
+            {/* Full-Screen Menu Overlay */}
+            <div
+                className={`fixed inset-0 bg-black/95 backdrop-blur-sm z-[200] transition-all duration-500 ease-in-out ${
+                    isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+                }`}
+                onClick={closeMenu}
+            >
+                {/* Close Button */}
+                <button
+                    className="absolute top-6 right-6 sm:top-8 sm:right-8 text-white text-3xl sm:text-4xl cursor-pointer p-2 rounded-full hover:bg-white/10 transition-all duration-200 hover:scale-110 hover:rotate-90 z-[210]"
+                    onClick={closeMenu}
+                    aria-label="Close menu"
                 >
-                    {/* Close Button */}
-                    <button
-                        className="absolute top-15 left-10 text-white text-6xl cursor-pointer p-2 rounded-full hover:bg-white/10 transition-colors duration-200"
-                        onClick={closeMenu}
-                        aria-label="Close mobile menu"
-                    >
-                        <IoMdClose />
-                    </button>
+                    <IoMdClose />
+                </button>
 
-                    {/* Mobile Navigation */}
-                    <nav className="flex flex-col gap-y-14 text-left">
+                {/* Menu Content */}
+                <div
+                    className={`mobile-menu w-full h-full flex flex-col items-center justify-center transition-all duration-700 ease-out ${
+                        isMenuOpen ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-10'
+                    }`}
+                    onClick={(e) => e.stopPropagation()}
+                >
+                    {/* Main Navigation */}
+                    <nav className="flex flex-col items-center gap-y-4 sm:gap-y-6 lg:gap-y-8 mb-8 sm:mb-12">
                         {navigationData.text.map((text, index) => (
                             <Link
                                 key={text}
@@ -131,32 +140,51 @@ function Header() {
                                 duration={500}
                                 offset={-80}
                                 onClick={closeMenu}
-                                className="flex items-center gap-x-3 text-left hover:translate-x-1 transition-transform duration-200 cursor-pointer"
+                                className="group flex items-center gap-x-4 text-center hover:scale-105 transition-all duration-300 cursor-pointer"
+                                style={{
+                                    transitionDelay: isMenuOpen ? `${index * 100}ms` : '0ms'
+                                }}
                             >
-                                <span className="text-2xl text-white">{navigationData.responsiveIcon[index]}</span>
-                                <span className="text-2xl text-white">{text}</span>
+                                <span className="text-2xl sm:text-3xl lg:text-4xl text-white/80 group-hover:text-[#00C0FF] transition-colors duration-300">
+                                    {navigationData.responsiveIcon[index]}
+                                </span>
+                                <span className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl text-white font-light group-hover:text-[#00C0FF] transition-colors duration-300">
+                                    {text}
+                                </span>
                             </Link>
                         ))}
                     </nav>
 
-                    <div className="w-full h-0.5 bg-gray-300/50 mt-10" role="separator" />
+                    {/* Separator Line */}
+                    <div className="w-32 sm:w-48 h-0.5 bg-gradient-to-r from-transparent via-white/50 to-transparent mb-8 sm:mb-12" />
 
-                    <div className="flex flex-row justify-center gap-x-5 mt-6">
+                    {/* Social Icons */}
+                    <div className="flex gap-x-6 sm:gap-x-8">
                         {navigationData.icons.map(({ icon, link, target }, index) => (
                             <a
                                 key={index}
                                 href={link}
                                 target={target}
                                 rel="noopener noreferrer"
-                                className="text-3xl p-3 text-white border-2 border-white rounded-full hover:bg-white hover:text-[#00C0FF] transition-all duration-200"
+                                className="text-2xl sm:text-3xl lg:text-4xl p-3 sm:p-4 text-white/80 border-2 border-white/30 rounded-full hover:bg-[#00C0FF] hover:text-white hover:border-[#00C0FF] hover:scale-110 transition-all duration-300 backdrop-blur-sm"
+                                style={{
+                                    transitionDelay: isMenuOpen ? `${(navigationData.text.length + index) * 100}ms` : '0ms'
+                                }}
                             >
                                 {icon}
                             </a>
                         ))}
                     </div>
+
+                    {/* Menu Background Animation */}
+                    <div className="absolute inset-0 pointer-events-none">
+                        <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-[#00C0FF]/10 rounded-full blur-3xl animate-pulse" />
+                        <div className="absolute top-3/4 right-1/4 w-24 h-24 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
+                        <div className="absolute bottom-1/4 left-1/3 w-20 h-20 bg-pink-500/10 rounded-full blur-3xl animate-pulse delay-500" />
+                    </div>
                 </div>
             </div>
-        </header>
+        </>
     );
 }
 
