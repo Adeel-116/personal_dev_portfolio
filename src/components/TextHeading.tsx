@@ -1,53 +1,108 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 
 interface TextHeadingProps {
     heading: string;
     text: React.ReactNode;
 }
 
-function TextHeading({ heading, text }: TextHeadingProps) {
+const TextHeading: React.FC<TextHeadingProps> = ({ heading, text }) => {
     const [isVisible, setIsVisible] = useState(false);
+    const [isInView, setIsInView] = useState(false);
+    const headingRef = useRef<HTMLDivElement>(null);
 
+    // Intersection Observer for scroll-based animation
     useEffect(() => {
-        const timeout = setTimeout(() => setIsVisible(true), 100);
-        return () => clearTimeout(timeout);
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsInView(true);
+                }
+            },
+            { threshold: 0.1 }
+        );
+
+        if (headingRef.current) {
+            observer.observe(headingRef.current);
+        }
+
+        return () => observer.disconnect();
     }, []);
 
-     <defs>
-        <linearGradient id="meshGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="rgba(88, 28, 135, 0.1)" />
-          <stop offset="50%" stopColor="rgba(0, 192, 255, 0.1)" />
-          <stop offset="100%" stopColor="rgba(139, 92, 246, 0.1)" />
-        </linearGradient>
-      </defs>
-      
+    // Delayed animation trigger
+    useEffect(() => {
+        if (isInView) {
+            const timeout = setTimeout(() => setIsVisible(true), 200);
+            return () => clearTimeout(timeout);
+        }
+    }, [isInView]);
 
     return (
-        <div className="text-center mb-16 relative">
-            {/* Small Heading with Gradient */}
-            <h4
-                className="text-xl font-medium text-center mb-2 bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent"
+        <div ref={headingRef} className="text-center mb-16 relative overflow-hidden">
+        
+            {/* Small Heading with Enhanced Gradient */}
+            <h4 
+                className={`relative z-10 text-xl font-medium mb-3 bg-gradient-to-r from-[#00C0FF] via-blue-400 to-purple-500 bg-clip-text text-transparent transition-all duration-1000 ${
+                    isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
+                }`}
             >
                 {heading}
             </h4>
 
-            {/* Main Heading in White */}
-            <h2
-                className={`text-6xl md:text-7xl font-bold text-white mb-6 transition-all duration-1000 ${
+            {/* Main Heading with Animated Gradient */}
+            <h2 
+                className={`relative z-10 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 transition-all duration-1200 ease-out ${
                     isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                 }`}
             >
-                {text}
+                <span className="bg-gradient-to-r from-white via-[#00C0FF] to-white bg-clip-text text-transparent bg-size-200 animate-gradient-x">
+                    {text}
+                </span>
             </h2>
 
-            {/* Gradient Line */}
-            <div
-                className={`w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto mb-6 transition-all duration-1000 delay-300 ${
-                    isVisible ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'
-                }`}
-            />
+            {/* Enhanced Gradient Line with Glow */}
+            <div className="relative z-10 flex justify-center mb-6">
+                <div 
+                    className={`w-32 h-1 bg-gradient-to-r from-[#00C0FF] via-blue-400 to-purple-500 rounded-full transition-all duration-1200 delay-400 ease-out ${
+                        isVisible ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'
+                    }`}
+                />
+                <div 
+                    className={`absolute top-0 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-[#00C0FF] via-blue-400 to-purple-500 rounded-full blur-sm transition-all duration-1200 delay-400 ease-out ${
+                        isVisible ? 'opacity-60 scale-x-100' : 'opacity-0 scale-x-0'
+                    }`}
+                />
+            </div>
+
+            {/* Floating Particles */}
+            <div className="absolute inset-0 pointer-events-none">
+                <div className={`absolute top-1/4 left-1/4 w-2 h-2 bg-[#00C0FF]/30 rounded-full transition-all duration-2000 ${isVisible ? 'animate-pulse opacity-100' : 'opacity-0'}`} />
+                <div className={`absolute top-3/4 right-1/4 w-1 h-1 bg-purple-400/40 rounded-full transition-all duration-2000 delay-500 ${isVisible ? 'animate-pulse opacity-100' : 'opacity-0'}`} />
+                <div className={`absolute top-1/2 left-3/4 w-1.5 h-1.5 bg-blue-400/30 rounded-full transition-all duration-2000 delay-1000 ${isVisible ? 'animate-pulse opacity-100' : 'opacity-0'}`} />
+            </div>
+
+            {/* Custom Styles */}
+            <style>{`
+                @keyframes gradient-x {
+                    0%, 100% {
+                        background-size: 200% 200%;
+                        background-position: left center;
+                    }
+                    50% {
+                        background-size: 200% 200%;
+                        background-position: right center;
+                    }
+                }
+                
+                .animate-gradient-x {
+                    animation: gradient-x 3s ease infinite;
+                }
+                
+                .bg-size-200 {
+                    background-size: 200% 200%;
+                }
+            `}</style>
         </div>
     );
-}
+};
 
 export default TextHeading;

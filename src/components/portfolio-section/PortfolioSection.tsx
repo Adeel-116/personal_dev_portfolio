@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { FaGlobe, FaCode, FaMobileAlt, FaPaintBrush, FaGithub, FaEye, } from "react-icons/fa";
-
+import TextHeading from "../TextHeading";
 //
 const portfolioData = [
   { id: 1, title: "E-Commerce Platform", description: "Full-stack e-commerce solution with advanced features and seamless user experience.", image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&h=400&fit=crop", technologies: ["React", "Node.js", "MongoDB", "Stripe", "Tailwind"], category: "web", liveUrl: "#", githubUrl: "#", featured: true },
@@ -65,15 +65,7 @@ const AnimatedBackground = () => (
   </div>
 );
 
-const GlowingOrb = ({ delay = 0 }) => (
-  <div 
-    className="absolute w-32 h-32 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 opacity-20 blur-xl animate-pulse"
-    style={{
-      animation: `glow 4s ease-in-out infinite`,
-      animationDelay: `${delay}s`
-    }}
-  />
-);
+
 
 export default function Portfolio() {
   const [activeCategory, setActiveCategory] = useState("all");
@@ -111,17 +103,10 @@ export default function Portfolio() {
     <div className="min-h-screen relative overflow-hidden">
       <AnimatedBackground />
       
-      <section ref={sectionRef} className="relative z-10 py-20 px-4">
-        {/* Header with enhanced typography */}
-        <div className="text-center mb-16 relative">
-          <GlowingOrb delay={0} />
-          <h2 className={`text-6xl md:text-7xl font-bold text-white mb-6 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            My <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Portfolio</span>
-          </h2>
-          <div className={`w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto mb-6 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'}`} />
-          <p className={`text-xl text-gray-300 max-w-2xl mx-auto transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
-            Explore my latest projects and creative solutions
-          </p>
+      <section ref={sectionRef} className="relative z-10 px-4">
+      
+        <div className="text-center relative">
+        <TextHeading heading="Here is a Complete Portfolio" text="Portfolio" />
         </div>
 
         {/* Enhanced category filter */}

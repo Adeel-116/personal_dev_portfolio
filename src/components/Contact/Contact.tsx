@@ -13,9 +13,10 @@ function Contact() {
   console.log(setFormData)
   return ( 
     <>
-    <div className="">
+
+    <div className="py-[120px]">
+ 
       <TextHeading heading="Contact" text="I want to hear from you" />
-    </div>
     <div className="w-full h-auto flex lg:flex-row flex-col justify-center items-center mt-2">
     
       <div className="left lg:w-1/2 sm:w-[80%] w-[95%] h-auto justify-center items-center flex flex-col gap-y-3 p-5">
@@ -116,6 +117,7 @@ function Contact() {
           </form>
         </div>
       </div>
+    </div>
     </div>
     </>
   );

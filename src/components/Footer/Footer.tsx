@@ -98,13 +98,13 @@ const Footer = () => {
                     <div className="absolute w-20 h-20 bg-gradient-to-r from-[#00C0FF] to-purple-400 rounded-full blur-2xl opacity-20" style={{ left: mousePosX - 40, top: mousePosY - 40 }}></div>
                 </div>
 
-                <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-                    <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                <div className="relative z-10 2xl:w-[75%] xl:w-[85%] sm:w-[85%] w-[95%] mx-auto py-16">
+                    <div className={`grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-8 mb-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                         
                         {/* Logo & Description */}
-                        <div className="sm:col-span-2 lg:col-span-1 flex flex-col items-center text-center">
-                            <img src={Logo} alt="Logo" className="w-32 sm:w-40 lg:w-44 h-auto object-contain mb-4" />
-                            <p className="text-gray-300 mb-6 leading-relaxed text-sm sm:text-base max-w-xs">
+                        <div className="lg:col-span-1 md:col-span-2 flex flex-col items-center">
+                            <img src={Logo} alt="Logo" className="w-[120px] sm:w-[150px] lg:w-[170px] h-auto object-contain mb-2" />
+                            <p className="text-gray-300 mb-2 leading-relaxed text-center text-sm sm:text-base">
                                 A passionate developer crafting creative digital solutions and seamless user experiences.
                             </p>
                             <div className="flex space-x-3 sm:space-x-4">
@@ -115,7 +115,6 @@ const Footer = () => {
                                         target="_blank" 
                                         rel="noopener noreferrer" 
                                         className={`text-xl sm:text-2xl p-2 sm:p-3 rounded-full bg-white/10 hover:scale-110 transition-all duration-300 ${social.color}`}
-                                        aria-label={social.name}
                                     >
                                         {social.icon}
                                     </a>
@@ -125,14 +124,14 @@ const Footer = () => {
 
                         {/* Quick Links */}
                         <div className="transition-all duration-1000 delay-200">
-                            <h4 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6 text-[#00C0FF] text-center sm:text-left">Quick Links</h4>
+                            <h4 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6 text-[#00C0FF] text-center">Quick Links</h4>
                             <ul className="space-y-2 sm:space-y-3">
                                 {navigationLinks.map((link) => (
-                                    <li key={link.name} className="flex justify-center sm:justify-start">
+                                    <li key={link.name} className="flex justify-center">
                                         <a 
                                             href={link.href} 
                                             onClick={(e) => handleNavClick(e, link.href)} 
-                                            className="text-gray-300 hover:text-[#00C0FF] transition-colors duration-300 text-sm sm:text-base py-1"
+                                            className="text-gray-300 hover:text-[#00C0FF] transition-colors duration-300 text-sm sm:text-base"
                                         >
                                             {link.name}
                                         </a>
@@ -143,15 +142,15 @@ const Footer = () => {
 
                         {/* Contact */}
                         <div className="transition-all duration-1000 delay-400">
-                            <h4 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6 text-[#00C0FF] text-center sm:text-left">Get In Touch</h4>
+                            <h4 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6 text-[#00C0FF] text-left">Get In Touch</h4>
                             <ul className="space-y-3 sm:space-y-4">
                                 {contactInfo.map((contact, idx) => (
                                     <li key={idx}>
                                         <a 
                                             href={contact.href} 
-                                            className="flex items-center justify-center sm:justify-start gap-3 text-gray-300 hover:text-[#00C0FF] transition-colors duration-300 text-sm sm:text-base"
+                                            className="flex items-center gap-3 text-gray-300 hover:text-[#00C0FF] transition-colors duration-300 text-sm sm:text-base"
                                         >
-                                            <span className="text-base sm:text-lg flex-shrink-0">{contact.icon}</span>
+                                            <span className="text-base sm:text-lg">{contact.icon}</span>
                                             <span className="break-all">{contact.text}</span>
                                         </a>
                                     </li>
@@ -161,34 +160,32 @@ const Footer = () => {
 
                         {/* Newsletter */}
                         <div className="transition-all duration-1000 delay-600">
-                            <h4 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6 text-[#00C0FF] text-center sm:text-left">Stay Updated</h4>
-                            <p className="text-gray-300 mb-4 text-center sm:text-left text-sm sm:text-base">Subscribe to get the latest updates and articles.</p>
-                            <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-2 sm:gap-3">
+                            <h4 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6 text-[#00C0FF] text-left">Stay Updated</h4>
+                            <p className="text-gray-300 mb-4 text-left text-sm sm:text-base">Subscribe to get the latest updates and articles.</p>
+                            <div className="flex flex-col sm:flex-row gap-2 sm:gap-2">
                                 <input 
                                     type="email" 
                                     value={email} 
                                     onChange={(e) => setEmail(e.target.value)} 
                                     placeholder="Enter your email" 
-                                    className="flex-1 px-3 sm:px-4 py-2 sm:py-3 bg-white/10 text-white rounded-lg placeholder:text-gray-400 border border-white/20 focus:border-[#00C0FF] focus:outline-none transition-colors duration-300 text-sm sm:text-base"
-                                    required
+                                    className="flex-1 px-3 sm:px-4 py-2 bg-white/10 text-white rounded-lg text-sm sm:text-base"
                                 />
                                 <button 
-                                    type="submit"
-                                    disabled={isLoading}
-                                    className="px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-[#00C0FF] to-blue-400 rounded-lg hover:from-blue-400 hover:to-[#00C0FF] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base font-medium whitespace-nowrap"
+                                    onClick={handleSubscribe}
+                                    className="px-4 sm:px-6 py-2 bg-gradient-to-r from-[#00C0FF] to-blue-400 rounded-lg text-sm sm:text-base whitespace-nowrap"
                                 >
                                     {isLoading ? 'Loading...' : isSubscribed ? 'Subscribed ✓' : 'Subscribe'}
                                 </button>
-                            </form>
+                            </div>
                         </div>
                     </div>
 
                     {/* Separator */}
-                    <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-400 to-transparent mb-6 sm:mb-8"></div>
+                    <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-400 to-transparent mb-8"></div>
 
                     {/* Copyright */}
-                    <div className="flex flex-col sm:flex-row justify-center sm:justify-between items-center gap-4">
-                        <div className="flex items-center space-x-2 text-gray-300 text-sm sm:text-base text-center">
+                    <div className="flex flex-col md:flex-row justify-between items-center">
+                        <div className="flex items-center space-x-2 text-gray-300 text-sm sm:text-base">
                             <span>© {currentYear} Muhammad Adeel. Developed & Designed by me</span>
                             <FaHeart className="text-red-400 animate-pulse" />
                         </div>

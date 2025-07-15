@@ -6,10 +6,6 @@ import { Link } from "react-scroll";
 // Icons
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoMdClose } from "react-icons/io";
-import { IoHome, IoPersonOutline } from "react-icons/io5";
-import { BiWorld } from "react-icons/bi";
-import { FaBriefcase, FaBlog } from "react-icons/fa";
-import { MdOutlineMail } from "react-icons/md";
 
 // Hooks
 import { useEffect, useState, useCallback, useMemo } from 'react';
@@ -31,7 +27,6 @@ function Header() {
 
     // Navigation data
     const navigationData = useMemo(() => ({
-        responsiveIcon: [<IoHome />, <IoPersonOutline />, <BiWorld />, <FaBriefcase />, <FaBlog />, <MdOutlineMail />],
         text: ["Home", "About", "Services", "Portfolio", "Blogs", "Contact"],
         scrollTargets: ["home", "about", "services", "portfolio", "blogs", "contact"],
         icons: [
@@ -41,15 +36,15 @@ function Header() {
     }), []);
 
     const headerStyles = useMemo(() => ({
-        backgroundColor: isScrolled ? "#1E1345" : "transparent",
-        transform: isScrolled ? "scaleY(0.9)" : "scaleY(1)",
+        backgroundColor: isScrolled ? "#1c184c" : "transparent",
+        transform: isScrolled ? "scaleY(0.96)" : "scaleY(1)",
         padding: isScrolled ? "15px 0px 20px 0px" : "20px 0px 25px 0px",
+        boxShadow: isScrolled ? '0 4px 12px rgba(0, 0, 0, 0.15)' : 'none',
     }), [isScrolled]);
 
     const toggleMenu = useCallback(() => setIsMenuOpen(prev => !prev), []);
     const closeMenu = useCallback(() => setIsMenuOpen(false), []);
 
-    // Close menu when clicking outside or pressing escape
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (isMenuOpen && !event.target.closest('.mobile-menu') && !event.target.closest('.menu-toggle')) {
@@ -66,7 +61,7 @@ function Header() {
         if (isMenuOpen) {
             document.addEventListener('click', handleClickOutside);
             document.addEventListener('keydown', handleEscapeKey);
-            document.body.style.overflow = 'hidden'; // Prevent scroll when menu is open
+            document.body.style.overflow = 'hidden';
         } else {
             document.body.style.overflow = 'unset';
         }
@@ -93,10 +88,10 @@ function Header() {
                         />
                     </div>
 
-                    {/* Hamburger Menu Button - Now visible on all devices */}
+                    {/* Hamburger Menu */}
                     <div className="flex justify-end">
                         <button
-                            className="menu-toggle text-white sm:text-3xl text-2xl cursor-pointer p-2 rounded-full hover:bg-white/10 transition-all duration-200 hover:scale-110"
+                            className="menu-toggle text-white sm:text-3xl text-2xl cursor-pointer p-2 rounded-full hover:bg-[#00c0ff]/10 transition-all duration-200 hover:scale-110"
                             onClick={toggleMenu}
                             aria-label="Toggle menu"
                             aria-expanded={isMenuOpen}
@@ -107,16 +102,16 @@ function Header() {
                 </div>
             </header>
 
-            {/* Full-Screen Menu Overlay */}
+            {/* Menu Overlay */}
             <div
-                className={`fixed inset-0 bg-black/95 backdrop-blur-sm z-[200] transition-all duration-500 ease-in-out ${
+                className={`fixed inset-0 bg-[#1c184c] backdrop-blur-sm z-[200] transition-all duration-500 ease-in-out ${
                     isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
                 }`}
                 onClick={closeMenu}
             >
                 {/* Close Button */}
                 <button
-                    className="absolute top-6 right-6 sm:top-8 sm:right-8 text-white text-3xl sm:text-4xl cursor-pointer p-2 rounded-full hover:bg-white/10 transition-all duration-200 hover:scale-110 hover:rotate-90 z-[210]"
+                    className="absolute top-6 right-6 sm:top-8 sm:right-8 text-white text-3xl sm:text-4xl cursor-pointer p-2 rounded-full hover:bg-[#00c0ff]/10 transition-all duration-200 hover:scale-110 hover:rotate-90 z-[210]"
                     onClick={closeMenu}
                     aria-label="Close menu"
                 >
@@ -145,9 +140,6 @@ function Header() {
                                     transitionDelay: isMenuOpen ? `${index * 100}ms` : '0ms'
                                 }}
                             >
-                                <span className="text-2xl sm:text-3xl lg:text-4xl text-white/80 group-hover:text-[#00C0FF] transition-colors duration-300">
-                                    {navigationData.responsiveIcon[index]}
-                                </span>
                                 <span className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl text-white font-light group-hover:text-[#00C0FF] transition-colors duration-300">
                                     {text}
                                 </span>
@@ -155,7 +147,7 @@ function Header() {
                         ))}
                     </nav>
 
-                    {/* Separator Line */}
+                    {/* Line Separator */}
                     <div className="w-32 sm:w-48 h-0.5 bg-gradient-to-r from-transparent via-white/50 to-transparent mb-8 sm:mb-12" />
 
                     {/* Social Icons */}
@@ -176,7 +168,7 @@ function Header() {
                         ))}
                     </div>
 
-                    {/* Menu Background Animation */}
+                    {/* Background Animations */}
                     <div className="absolute inset-0 pointer-events-none">
                         <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-[#00C0FF]/10 rounded-full blur-3xl animate-pulse" />
                         <div className="absolute top-3/4 right-1/4 w-24 h-24 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
