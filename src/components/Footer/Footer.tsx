@@ -88,17 +88,10 @@ const Footer = () => {
 
   return (
     <>
-      <footer id="footer" ref={footerRef} className="relative bg-gradient-to-br from-[#1E1345] via-[#2A1B5C] to-[#1E1345] text-white overflow-hidden">
-        {/* Background Bubbles */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-10 left-10 w-32 h-32 bg-[#00C0FF] rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute top-40 right-20 w-24 h-24 bg-blue-400 rounded-full blur-2xl animate-pulse delay-1000"></div>
-          <div className="absolute bottom-20 left-1/4 w-40 h-40 bg-purple-400 rounded-full blur-3xl animate-pulse delay-2000"></div>
-          <div className="absolute bottom-40 right-1/3 w-28 h-28 bg-[#00C0FF] rounded-full blur-2xl animate-pulse delay-3000"></div>
-          <div className="absolute w-20 h-20 bg-gradient-to-r from-[#00C0FF] to-purple-400 rounded-full blur-2xl opacity-20" style={{ left: mousePosX - 40, top: mousePosY - 40 }}></div>
-        </div>
+      <footer id="footer" ref={footerRef} className="w-full relative bg-gradient-to-br from-[#1E1345] via-[#2A1B5C] to-[#1E1345] text-white overflow-hidden">
+       
 
-        <div className="relative z-10 w-[95%] max-w-[1400px] mx-auto py-16 px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 2xl:w-[75%] xl:w-[85%] sm:w-[90%] mx-auto py-10 w-[95%]  py-16 px-4 sm:px-6 lg:px-8">
           <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
 
             {/* Logo */}

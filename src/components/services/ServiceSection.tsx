@@ -41,11 +41,11 @@ function ServiceSection() {
                 <TextHeading heading='Services' text='What I Do for My Clients' />
             </div>
 
-            <div className='w-full h-auto flex lg:flex-row flex-col gap-6 flex-wrap justify-center items-center py-10 px-4'>
+            <div className='w-full h-auto flex md:flex-row flex-col gap-6 flex-wrap justify-center items-center py-10 px-4'>
                 {services.map((service, index) => (
                     <Service 
                         key={index}
-                        className='xl:w-[32.1%] lg:w-[45%] w-[90%]' 
+                        className='2xl:w-[540px] xl:w-[490px] lg:w-[420px] md:w-[310px] sm:w-[530px]' 
                         icon={service.icon}
                         title={service.title}
                         description={service.description}

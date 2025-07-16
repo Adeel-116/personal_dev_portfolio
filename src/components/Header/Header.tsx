@@ -36,9 +36,9 @@ function Header() {
     }), []);
 
     const headerStyles = useMemo(() => ({
-        backgroundColor: isScrolled ? "#1c184c" : "transparent",
+        backgroundColor: isScrolled ? "#35266ae0" : "transparent",
         transform: isScrolled ? "scaleY(0.96)" : "scaleY(1)",
-        padding: isScrolled ? "15px 0px 20px 0px" : "20px 0px 25px 0px",
+        padding: isScrolled ? "15px 0px 10px 0px" : "20px 0px 25px 0px",
         boxShadow: isScrolled ? '0 4px 12px rgba(0, 0, 0, 0.15)' : 'none',
     }), [isScrolled]);
 
@@ -76,7 +76,7 @@ function Header() {
     return (
         <>
             <header className="w-full fixed top-0 left-0 z-[100] flex justify-center transition-all duration-300 origin-top" style={headerStyles}>
-                <div className="2xl:w-[75%] xl:w-[85%] lg:w-[90%] md:w-[95%] w-[98%] h-auto flex items-center justify-between px-2 sm:px-4">
+                <div className="2xl:w-[75%] xl:w-[85%] lg:w-[90%] md:w-[95%] w-[98%] md:px-0 px-4 h-auto flex items-center justify-between">
                     
                     {/* Logo */}
                     <div className="flex justify-center items-center flex-shrink-0">

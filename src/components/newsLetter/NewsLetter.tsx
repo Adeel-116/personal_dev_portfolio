@@ -18,7 +18,7 @@ function NewsLetter() {
                   name="name"
                   value={""}
                   placeholder="Your Email Here"
-                  className="sm:w-2/2 w-full sm:px-7 text-sm sm:py-6 p-3 border bg-white rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#00c0ff]"
+                  className="sm:w-2/2 w-full sm:px-7 text-sm sm:py-6 p-3 border bg-white rounded-2xl :outline-none focufocuss:ring-2 focus:ring-[#00c0ff]"
                   required
                 />
                 <div className='absolute sm:w-1/4 w-[30%] h-full overflow-hidden bg-[#00c0ff] right-0 flex justify-center items-center rounded-r-2xl'>

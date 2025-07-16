@@ -68,7 +68,7 @@ function ImageComponent() {
       </div>  
 
       {/* Footer */}
-      <div className='w-full mt-auto'> 
+      <div className='w-full'> 
         <Footer /> 
       </div>  
 
