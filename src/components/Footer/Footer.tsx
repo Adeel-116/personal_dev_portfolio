@@ -11,8 +11,6 @@ const Footer = () => {
   const [email, setEmail] = useState('');
   const [isSubscribed, setIsSubscribed] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [mousePosX, setMousePosX] = useState(0);
-  const [mousePosY, setMousePosY] = useState(0);
   const footerRef = useRef(null);
 
   useEffect(() => {
@@ -31,22 +29,10 @@ const Footer = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      if (footerRef.current) {
-        const rect = footerRef.current.getBoundingClientRect();
-        setMousePosX(e.clientX - rect.left);
-        setMousePosY(e.clientY - rect.top);
-      }
-    };
-    const footer = footerRef.current;
-    footer?.addEventListener('mousemove', handleMouseMove);
-    return () => footer?.removeEventListener('mousemove', handleMouseMove);
-  }, []);
 
   const scrollToTop = useCallback(() => window.scrollTo({ top: 0, behavior: 'smooth' }), []);
 
-  const handleSubscribe = useCallback(async (e) => {
+  const handleSubscribe = useCallback(async (e:React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (!email.includes('@')) return;
     setIsLoading(true);
@@ -57,10 +43,10 @@ const Footer = () => {
     setTimeout(() => setIsSubscribed(false), 3000);
   }, [email]);
 
-  const handleNavClick = useCallback((e, href) => {
-    e.preventDefault();
-    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }, []);
+  // const handleNavClick = useCallback((e, href) => {
+  //   e.preventDefault();
+  //   document.querySelector(href)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  // }, []);
 
   const navigationLinks = [
     { name: "Home", href: "#home" },
@@ -115,7 +101,7 @@ const Footer = () => {
               <ul className="space-y-2">
                 {navigationLinks.map((link) => (
                   <li key={link.name}>
-                    <a href={link.href} onClick={(e) => handleNavClick(e, link.href)} className="text-gray-300 hover:text-[#00C0FF] transition-colors duration-300 text-sm">
+                    <a href={link.href} className="text-gray-300 hover:text-[#00C0FF] transition-colors duration-300 text-sm">
                       {link.name}
                     </a>
                   </li>

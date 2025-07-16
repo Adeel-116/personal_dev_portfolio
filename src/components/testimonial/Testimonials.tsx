@@ -42,7 +42,7 @@ function Testimonials() {
     setTimeout(() => setIsAnimating(false), 500);
   };
 
-  const goToSlide = (index) => {
+  const goToSlide = (index: number) => {
     if (isAnimating || index === slideNumber) return;
     setIsAnimating(true);
     setSlideNumber(index);

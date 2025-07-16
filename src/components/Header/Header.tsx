@@ -45,33 +45,32 @@ function Header() {
     const toggleMenu = useCallback(() => setIsMenuOpen(prev => !prev), []);
     const closeMenu = useCallback(() => setIsMenuOpen(false), []);
 
-    useEffect(() => {
-        const handleClickOutside = (event) => {
-            if (isMenuOpen && !event.target.closest('.mobile-menu') && !event.target.closest('.menu-toggle')) {
-                closeMenu();
-            }
-        };
+   useEffect(() => {
+  const handleClickOutside = (event: MouseEvent) => {
+    const target = event.target as HTMLElement;
+    if (
+      isMenuOpen &&
+      !target.closest('.mobile-menu') &&
+      !target.closest('.menu-toggle')
+    ) {
+      closeMenu();
+    }
+  };
 
-        const handleEscapeKey = (event) => {
-            if (event.key === 'Escape' && isMenuOpen) {
-                closeMenu();
-            }
-        };
+  const handleEscapeKey = (event: KeyboardEvent) => {
+    if (event.key === 'Escape' && isMenuOpen) {
+      closeMenu();
+    }
+  };
 
-        if (isMenuOpen) {
-            document.addEventListener('click', handleClickOutside);
-            document.addEventListener('keydown', handleEscapeKey);
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = 'unset';
-        }
+  document.addEventListener('mousedown', handleClickOutside);
+  document.addEventListener('keydown', handleEscapeKey);
 
-        return () => {
-            document.removeEventListener('click', handleClickOutside);
-            document.removeEventListener('keydown', handleEscapeKey);
-            document.body.style.overflow = 'unset';
-        };
-    }, [isMenuOpen, closeMenu]);
+  return () => {
+    document.removeEventListener('mousedown', handleClickOutside);
+    document.removeEventListener('keydown', handleEscapeKey);
+  };
+}, [isMenuOpen]);
 
     return (
         <>

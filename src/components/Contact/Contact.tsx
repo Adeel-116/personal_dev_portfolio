@@ -5,7 +5,7 @@ import Button from "../Button";
 import TextHeading from "../TextHeading";
 
 function Contact() {
-  const [formData, setFormData] = useState({
+  const [formData] = useState({
     name: "",
     email: "",
     phone: "",

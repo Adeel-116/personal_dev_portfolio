@@ -52,10 +52,6 @@ function ImageComponent() {
         <Testimonials />
       </Element>
 
-      {/* Blog */}
-      {/* <Element name="blogs" className="2xl:w-[75%] xl:w-[85%] sm:w-[90%] w-[95%]">
-        <Blog />
-      </Element> */}
 
       {/* Contact */}
       <Element name="contact" className='2xl:w-[75%] xl:w-[85%] sm:w-[90%] w-[95%]'>
