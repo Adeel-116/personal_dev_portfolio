@@ -1,17 +1,16 @@
 import HeroSection from './HeroSection/HeroSection'; 
 import MouseCircle from './MouseCircle'; 
-import Header from './Header/Header'; 
 import AboutUS from './About/AboutUS'; 
 import Contact from './Contact/Contact'; 
 import NewsLetter from './newsLetter/NewsLetter'; 
 import SkillSection from './SkillsSection/SkillSection'; 
 import ServiceSection from './services/ServiceSection'; 
 import Testimonials from './testimonial/Testimonials'; 
-import Blog from './Blog/Blog'; 
 import backGroundImage from '../assets/backGroundImage.jpg'; 
 import Portfolio from './portfolio-section/PortfolioSection'; 
 import Footer from './Footer/Footer'; 
 import {Element} from "react-scroll"
+import Header from './Header/Header';
 
 function ImageComponent() { 
   return ( 

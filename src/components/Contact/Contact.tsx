@@ -14,7 +14,7 @@ function Contact() {
   return ( 
     <>
 
-    <div className="py-[120px]">
+    <div className="py-30">
  
       <TextHeading heading="Contact" text="I want to hear from you" />
     <div className="w-full h-auto flex lg:flex-row flex-col justify-center items-center mt-2">

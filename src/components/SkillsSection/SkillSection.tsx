@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import TextHeading from '../TextHeading'
 
 function ProgressBar({ 
   skillName = 'HTML', 
@@ -130,14 +131,6 @@ function ProgressBar({
   )
 }
 
-function TextHeading({ heading, text }) {
-  return (
-    <div className='text-center mb-12'>
-      <h2 className='text-4xl font-bold text-white mb-4'>{heading}</h2>
-      <p className='text-lg text-gray-300'>{text}</p>
-    </div>
-  )
-}
 
 function SkillSection() {
   // Define your skills here - easy to add/remove/modify
@@ -165,14 +158,8 @@ const skills = [
   return (
     <div className='w-full h-auto min-h-screen py-20 px-4'>
       <div className='max-w-6xl mx-auto'>
-        <TextHeading
-          heading="Skills"
-          text={
-            <>
-              I Work Hard to Improve My Skills Regularly
-            </>
-          }
-        />
+      <TextHeading heading="Skills" text="I Worked Hard To Improve My Skills" />
+        
         
         <div className='w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center mt-15'>
           {skills.map((skill, index) => (
