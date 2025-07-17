@@ -1,4 +1,4 @@
-import  { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import HeroSection from './HeroSection/HeroSection'; 
 import MouseCircle from './MouseCircle'; 
 import AboutUS from './About/AboutUS'; 
@@ -13,21 +13,116 @@ import Footer from './Footer/Footer';
 import { Element } from "react-scroll"
 import Header from './Header/Header';
 
+// Loading Screen Component
+function LoadingScreen() {
+  return (
+    <div className="fixed inset-0 bg-gradient-to-br from-[#1E1345] via-[#2A1B5C] to-[#1E1345] flex flex-col justify-center items-center z-50">
+      {/* Loading Text */}
+      <div className="mb-8 text-center">
+        <p className="text-lg text-gray-300 animate-fade-in">
+          Loading your experience...
+        </p>
+      </div>
+
+      {/* Loading Spinner */}
+      <div className="relative">
+        <div className="w-16 h-16 border-4 border-purple-200 border-t-purple-500 rounded-full animate-spin"></div>
+        <div className="absolute inset-0 w-16 h-16 border-4 border-transparent border-b-blue-500 rounded-full animate-spin-slow"></div>
+      </div>
+
+      {/* Loading Progress Bar */}
+      <div className="mt-8 w-64 bg-gray-700 rounded-full h-2">
+        <div className="bg-gradient-to-r from-purple-500 to-blue-500 h-2 rounded-full animate-progress"></div>
+      </div>
+
+      {/* Loading Text */}
+      <div className="mt-4 text-center">
+        <p className="text-gray-400 text-sm animate-pulse">
+          Please wait while we prepare everything for you
+        </p>
+      </div>
+
+      {/* Floating Particles */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-purple-400 rounded-full animate-float"></div>
+        <div className="absolute top-1/3 right-1/4 w-1 h-1 bg-blue-400 rounded-full animate-float-delayed"></div>
+        <div className="absolute bottom-1/4 left-1/3 w-1.5 h-1.5 bg-pink-400 rounded-full animate-float-slow"></div>
+        <div className="absolute bottom-1/3 right-1/3 w-2 h-2 bg-cyan-400 rounded-full animate-float-delayed"></div>
+      </div>
+
+      <style>{`
+        @keyframes fade-in {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes spin-slow {
+          to { transform: rotate(-360deg); }
+        }
+        
+        @keyframes progress {
+          0% { width: 0%; }
+          50% { width: 60%; }
+          100% { width: 100%; }
+        }
+        
+        @keyframes float {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(-20px) rotate(180deg); }
+        }
+        
+        @keyframes float-delayed {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(-15px) rotate(-180deg); }
+        }
+        
+        @keyframes float-slow {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(-10px) rotate(360deg); }
+        }
+        
+        .animate-fade-in {
+          animation: fade-in 1s ease-in-out;
+        }
+        
+        .animate-spin-slow {
+          animation: spin-slow 3s linear infinite;
+        }
+        
+        .animate-progress {
+          animation: progress 2s ease-in-out infinite;
+        }
+        
+        .animate-float {
+          animation: float 3s ease-in-out infinite;
+        }
+        
+        .animate-float-delayed {
+          animation: float-delayed 3s ease-in-out infinite 0.5s;
+        }
+        
+        .animate-float-slow {
+          animation: float-slow 4s ease-in-out infinite 1s;
+        }
+      `}</style>
+    </div>
+  );
+}
+
 function ImageComponent() {
   const [imageLoaded, setImageLoaded] = useState(false);
 
   useEffect(() => {
     const img = new Image();
     img.src = backGroundImage;
-    img.onload = () => setImageLoaded(true);
+    img.onload = () => {
+
+      setTimeout(() => setImageLoaded(true), 1000);
+    };
   }, []);
 
   if (!imageLoaded) {
-    return (
-      <div className="w-full h-screen flex justify-center items-center bg-black text-white text-lg">
-        Loading background...
-      </div>
-    );
+    return <LoadingScreen />;
   }
 
   return (
