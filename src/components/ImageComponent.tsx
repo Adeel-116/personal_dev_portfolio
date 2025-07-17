@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import HeroSection from './HeroSection/HeroSection'; 
 import MouseCircle from './MouseCircle'; 
 import AboutUS from './About/AboutUS'; 
