@@ -180,7 +180,7 @@ function ImageComponent() {
       </div>
 
       {/* Mouse Circle - positioned separately */}
-      <div className="fixed inset-0 pointer-events-none z-[50]">
+      <div className="sm:fixed hidden inset-0 pointer-events-none z-[50]">
         <MouseCircle />
       </div>
     </div>
