@@ -11,7 +11,7 @@ import Portfolio from './portfolio-section/PortfolioSection';
 import Footer from './Footer/Footer';
 import Header from './Header/Header';
 import { Element } from "react-scroll";
-import bgImage from "../assets/backGroundImage.jpg";
+import bgImage from "../assets/backGroundImage.webp";
 
 function LoadingScreen() {
   return (
@@ -140,7 +140,7 @@ function ImageComponent() {
         {/* Main Content */}
         <main className="flex-1 flex flex-col items-center">
           {/* Add padding top to account for fixed header */}
-          <div className="pt-24 w-full flex flex-col items-center">
+          <div className=" w-full flex flex-col items-center">
             
             <Element name="home" className='2xl:w-[75%] xl:w-[85%] sm:w-[90%] w-[95%] flex justify-center items-center'>
               <HeroSection />

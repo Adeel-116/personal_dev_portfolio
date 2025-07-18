@@ -432,7 +432,7 @@ const HeroSection = () => {
 
   return (
     <section 
-      className="w-full xl:h-auto h-auto grid lg:grid-cols-2 grid-cols-1 lg:items-center xl:py-7 lg:py-40 sm:py-30 py-40 relative overflow-hidden"
+      className="w-full xl:h-screen h-auto grid lg:grid-cols-2 grid-cols-1 lg:items-center xl:py-0 lg:py-40 sm:py-30 py-40 relative overflow-hidden"
       aria-label="Hero section introducing Muhammad Adeel"
     >
   
