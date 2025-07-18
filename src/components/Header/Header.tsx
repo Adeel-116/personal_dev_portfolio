@@ -57,7 +57,7 @@ function Header() {
 
     return (
         <>
-            <header className="w-full flex justify-center transition-all duration-300 origin-top bg-red-400">
+            <header className="w-full flex justify-center transition-all duration-300 origin-top">
                 <div className="2xl:w-[75%] xl:w-[85%] lg:w-[90%] md:w-[95%] w-[98%] md:px-0 px-4 h-auto flex items-center justify-between py-5">
                     
                     {/* Logo */}
