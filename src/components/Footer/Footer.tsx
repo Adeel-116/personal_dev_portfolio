@@ -83,7 +83,7 @@ const Footer = () => {
             {/* Logo */}
             <div className="flex flex-col items-center lg:items-start">
               <img src={Logo} alt="Logo" className="w-[120px] sm:w-[150px] lg:w-[170px] mb-4" />
-              <p className="text-gray-300 text-center lg:text-left text-sm leading-relaxed mb-4">
+              <p className="text-gray-300 text-center lg:text-left text-[15px] leading-relaxed mb-2">
                 A passionate developer crafting creative digital solutions and seamless user experiences.
               </p>
               <div className="flex space-x-3">
@@ -96,12 +96,12 @@ const Footer = () => {
             </div>
 
             {/* Links */}
-            <div className="text-center lg:text-left">
+            <div className="text-center lg:text-left lg:pl-7">
               <h4 className="text-lg font-semibold text-[#00C0FF] mb-4">Quick Links</h4>
               <ul className="space-y-2">
                 {navigationLinks.map((link) => (
                   <li key={link.name}>
-                    <a href={link.href} className="text-gray-300 hover:text-[#00C0FF] transition-colors duration-300 text-sm">
+                    <a href={link.href} className="text-gray-300 hover:text-[#00C0FF] text-[16px] transition-colors duration-300 text-sm">
                       {link.name}
                     </a>
                   </li>
@@ -114,7 +114,7 @@ const Footer = () => {
               <h4 className="text-lg font-semibold text-[#00C0FF] mb-4">Get In Touch</h4>
               <ul className="space-y-3">
                 {contactInfo.map((contact, idx) => (
-                  <li key={idx} className="flex justify-center lg:justify-start items-center gap-3 text-gray-300 hover:text-[#00C0FF] text-sm">
+                  <li key={idx} className="flex justify-center lg:justify-start items-center gap-3 text-gray-300 hover:text-[#00C0FF] text-[15px]">
                     <span>{contact.icon}</span>
                     <a href={contact.href} className="break-words">{contact.text}</a>
                   </li>
@@ -125,7 +125,7 @@ const Footer = () => {
             {/* Newsletter */}
             <div>
               <h4 className="text-lg font-semibold text-[#00C0FF] mb-4">Stay Updated</h4>
-              <p className="text-gray-300 text-sm mb-4">Subscribe to get the latest updates and articles.</p>
+              <p className="text-gray-300 text-[14px] mb-4">Subscribe to get the latest updates and articles.</p>
               <div className="flex flex-col sm:flex-row gap-2">
                 <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Enter your email" className="flex-1 px-3 py-2 bg-white/10 text-white rounded-md text-sm" />
                 <button onClick={handleSubscribe} className="px-4 py-2 bg-gradient-to-r from-[#00C0FF] to-blue-400 rounded-md text-sm">
@@ -137,7 +137,7 @@ const Footer = () => {
 
           {/* Divider */}
           <div className="mt-12 border-t border-white/20 pt-6 flex flex-col sm:flex-row items-center justify-between">
-            <p className="text-sm text-gray-400 flex items-center gap-1">
+            <p className="text-[15px] text-gray-400 flex items-center gap-1">
               © {currentYear} Muhammad Adeel. Developed & Designed by me <FaHeart className="text-red-400 animate-pulse" />
             </p>
           </div>

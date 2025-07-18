@@ -119,7 +119,7 @@ function ImageComponent() {
   }
 
   return (
-    <div className="relative w-full min-h-screen">
+    <div className="relative w-full min-h-[600px]">
       {/* Background Image */}
       <div 
         className="fixed inset-0 z-0"

@@ -55,7 +55,7 @@ function Testimonials() {
   }, [slideNumber]);
 
   return (
-    <div className='w-full flex items-center justify-center flex-col sm:p-5 py-20'>
+    <div className='w-full flex items-center justify-center flex-col sm:p-5 py-15'>
       <TextHeading heading="Testimonials" text="What Our Clients Say" />
 
       {/* Slides */}
@@ -83,11 +83,11 @@ function Testimonials() {
               </div>
 
               <div className='sm:w-[85%] w-[90%] h-auto flex flex-row justify-center items-center'>
-                <div className="sm:w-[60px] sm:h-[60px] w-[70px] h-[70px] bg-[#00c0ff] rounded-full flex justify-center items-center text-white text-2xl font-semibold">
+                <div className="sm:w-[60px] sm:h-[60px] w-[50px] h-[50px] bg-[#00c0ff] rounded-full flex justify-center items-center text-white text-2xl font-semibold">
                   {slide.name.charAt(0)}
                 </div>
                 <div className='py-1 px-2'>
-                  <h1 className='font-semibold text-white text-xl text-left'>{slide.name}</h1>
+                  <h1 className='font-semibold text-white sm:text-xl text-sm text-left'>{slide.name}</h1>
                   <p className='md:text-[14px] sm:text-[13px] text-[13px] text-left font-medium text-white'>
                     {slide.role}
                   </p>
@@ -111,7 +111,7 @@ function Testimonials() {
             disabled={isAnimating}
           >
             <IoChevronForwardCircleOutline 
-              size={65} 
+              size={50} 
               color='#fafafa'
               className="transition-colors duration-300 hover:text-[#00c0ff]"
             />
@@ -127,7 +127,7 @@ function Testimonials() {
             disabled={isAnimating}
           >
             <IoChevronForwardCircleOutline 
-              size={65} 
+              size={50} 
               color='#fafafa'
               className="transition-colors duration-300 hover:text-[#00c0ff]"
             />
