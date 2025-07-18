@@ -23,41 +23,41 @@ function Header() {
     const closeMenu = useCallback(() => setIsMenuOpen(false), []);
 
     useEffect(() => {
-        const handleClickOutside = (event) => {
-            const target = event.target;
-            if (
-                isMenuOpen &&
-                !target.closest('.mobile-menu') &&
-                !target.closest('.menu-toggle')
-            ) {
-                closeMenu();
-            }
-        };
-
-        const handleEscapeKey = (event) => {
-            if (event.key === 'Escape' && isMenuOpen) {
-                closeMenu();
-            }
-        };
-
-        if (isMenuOpen) {
-            document.addEventListener('mousedown', handleClickOutside);
-            document.addEventListener('keydown', handleEscapeKey);
-            document.body.style.overflow = 'hidden'; // Prevent background scroll
-        } else {
-            document.body.style.overflow = 'unset';
+    const handleClickOutside = (event: MouseEvent) => {
+        const target = event.target as HTMLElement;
+        if (
+            isMenuOpen &&
+            !target.closest('.mobile-menu') &&
+            !target.closest('.menu-toggle')
+        ) {
+            closeMenu();
         }
+    };
 
-        return () => {
-            document.removeEventListener('mousedown', handleClickOutside);
-            document.removeEventListener('keydown', handleEscapeKey);
-            document.body.style.overflow = 'unset';
-        };
-    }, [isMenuOpen, closeMenu]);
+    const handleEscapeKey = (event: KeyboardEvent) => {
+        if (event.key === 'Escape' && isMenuOpen) {
+            closeMenu();
+        }
+    };
+
+    if (isMenuOpen) {
+        document.addEventListener('mousedown', handleClickOutside);
+        document.addEventListener('keydown', handleEscapeKey);
+        document.body.style.overflow = 'hidden';
+    } else {
+        document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+        document.removeEventListener('mousedown', handleClickOutside);
+        document.removeEventListener('keydown', handleEscapeKey);
+        document.body.style.overflow = 'unset';
+    };
+}, [isMenuOpen, closeMenu]);
 
     return (
         <>
-            <header className="w-full flex justify-center transition-all duration-300">
+            <header className="w-full flex justify-center transition-all duration-300 origin-top bg-red-400">
                 <div className="2xl:w-[75%] xl:w-[85%] lg:w-[90%] md:w-[95%] w-[98%] md:px-0 px-4 h-auto flex items-center justify-between py-5">
                     
                     {/* Logo */}
