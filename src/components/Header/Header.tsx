@@ -36,7 +36,7 @@ function Header() {
     }), []);
 
     const headerStyles = useMemo(() => ({
-        backgroundColor: isScrolled ? "#35266ae0" : "transparent",
+        backgroundColor: isScrolled ? "#35266aff" : "transparent",
         transform: isScrolled ? "scaleY(0.96)" : "scaleY(1)",
         padding: isScrolled ? "15px 0px 10px 0px" : "20px 0px 25px 0px",
         boxShadow: isScrolled ? '0 4px 12px rgba(0, 0, 0, 0.15)' : 'none',
