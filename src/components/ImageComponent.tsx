@@ -15,7 +15,7 @@ import bgImage from "../assets/backGroundImage.jpg";
 
 function LoadingScreen() {
   return (
-    <div className="fixed inset-0 bg-gradient-to-br from-[#1E1345] via-[#2A1B5C] to-[#1E1345] flex flex-col justify-center items-center z-50">
+    <div className="fixed inset-0 bg-gradient-to-br from-[#1E1345] via-[#2A1B5C] to-[#1E1345] flex flex-col justify-center items-center z-[1001]">
       <div className="mb-8 text-center">
         <p className="text-lg text-gray-300 animate-fade-in">
           Loading your experience...
@@ -119,58 +119,68 @@ function ImageComponent() {
   }
 
   return (
-    <div className="relative w-full h-auto flex flex-col items-center min-h-screen overflow-hidden">
-      <img
-        src={bgImage}
-        alt="Background"
-        className="absolute top-0 left-0 w-full h-full object-cover z-0"
+    <div className="relative w-full min-h-screen">
+      {/* Background Image */}
+      <div 
+        className="fixed inset-0 z-0"
+        style={{
+          backgroundImage: `url(${bgImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          backgroundAttachment: 'fixed'
+        }}
       />
 
-      {/* Optional overlay */}
-      <div className="absolute top-0 left-0 w-full h-full bg-black/30 z-0" />
-
-      {/* Page content */}
-      <div className="relative z-10 w-full">
+      {/* Content Container */}
+      <div className="relative z-10 min-h-screen flex flex-col">
+        {/* Header */}
         <Header />
+
+        {/* Main Content */}
+        <main className="flex-1 flex flex-col items-center">
+          {/* Add padding top to account for fixed header */}
+          <div className="pt-24 w-full flex flex-col items-center">
+            
+            <Element name="home" className='2xl:w-[75%] xl:w-[85%] sm:w-[90%] w-[95%] flex justify-center items-center'>
+              <HeroSection />
+            </Element>
+
+            <Element name="about" className='2xl:w-[75%] xl:w-[85%] sm:w-[90%] w-[95%] flex justify-center items-center'>
+              <AboutUS />
+            </Element>
+
+            <Element name="skills" className='2xl:w-[75%] xl:w-[85%] sm:w-[90%] w-[95%]'>
+              <SkillSection />
+            </Element>
+
+            <Element name="portfolio" className='2xl:w-[75%] xl:w-[85%] sm:w-[90%] w-[95%] flex justify-center items-center'>
+              <Portfolio />
+            </Element>
+
+            <Element name="services" className='2xl:w-[75%] xl:w-[85%] sm:w-[90%] w-[95%]'>
+              <ServiceSection />
+            </Element>
+
+            <Element name="testimonials" className='2xl:w-[75%] xl:w-[85%] sm:w-[90%] w-[95%]'>
+              <Testimonials />
+            </Element>
+
+            <Element name="contact" className='2xl:w-[75%] xl:w-[85%] sm:w-[90%] w-[95%]'>
+              <Contact />
+            </Element>
+
+            <div className='2xl:w-[75%] xl:w-[85%] sm:w-[90%] w-[95%] flex justify-center py-10'>
+              <NewsLetter />
+            </div>
+
+            <Footer />
+          </div>
+        </main>
       </div>
 
-      <Element name="home" className='relative z-10 2xl:w-[75%] xl:w-[85%] sm:w-[90%] w-[95%] justify-center items-center'>
-        <HeroSection />
-      </Element>
-
-      <Element name="about" className='relative z-10 2xl:w-[75%] xl:w-[85%] sm:w-[90%] w-[95%] justify-center items-center'>
-        <AboutUS />
-      </Element>
-
-      <Element name="skills" className='relative z-10 2xl:w-[75%] xl:w-[85%] sm:w-[90%] w-[95%]'>
-        <SkillSection />
-      </Element>
-
-      <Element name="portfolio" className='relative z-10 2xl:w-[75%] xl:w-[85%] sm:w-[90%] justify-center items-center'>
-        <Portfolio />
-      </Element>
-
-      <Element name="services" className='relative z-10 2xl:w-[75%] xl:w-[85%] sm:w-[90%] w-[95%]'>
-        <ServiceSection />
-      </Element>
-
-      <Element name="testimonials" className='relative z-10 2xl:w-[75%] xl:w-[85%] sm:w-[90%] w-[95%]'>
-        <Testimonials />
-      </Element>
-
-      <Element name="contact" className='relative z-10 2xl:w-[75%] xl:w-[85%] sm:w-[90%] w-[95%]'>
-        <Contact />
-      </Element>
-
-      <div className='relative z-10 2xl:w-[75%] xl:w-[85%] sm:w-[90%] flex justify-center py-10 w-[95%]'>
-        <NewsLetter />
-      </div>
-
-      <div className='relative z-10 w-full'>
-        <Footer />
-      </div>
-
-      <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-20">
+      {/* Mouse Circle - positioned separately */}
+      <div className="fixed inset-0 pointer-events-none z-[50]">
         <MouseCircle />
       </div>
     </div>
