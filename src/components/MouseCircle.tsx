@@ -29,7 +29,7 @@ export default function MouseCircle() {
   return (
     <>
       <div
-        className="fixed pointer-events-none transition-all duration-200 ease-out"
+        className="sm:fixed hidden pointer-events-none transition-all duration-200 ease-out"
         style={{
           transform: `translate(${mousePosition.x}px, ${mousePosition.y}px)`,
         }}
