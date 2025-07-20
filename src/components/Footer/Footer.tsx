@@ -125,7 +125,7 @@ const Footer = () => {
             {/* Newsletter */}
             <div>
               <h4 className="text-lg font-semibold text-[#00C0FF] mb-4">Stay Updated</h4>
-              <p className="text-gray-300 text-[14px] mb-4">Subscribe to get the latest updates and articles.</p>
+              <p className="text-gray-300 text-[14px] mb-4">Subscribe to get the latest update</p>
               <div className="flex flex-col sm:flex-row gap-2">
                 <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Enter your email" className="flex-1 px-3 py-2 bg-white/10 text-white rounded-md text-sm" />
                 <button onClick={handleSubscribe} className="px-4 py-2 bg-gradient-to-r from-[#00C0FF] to-blue-400 rounded-md text-sm">
