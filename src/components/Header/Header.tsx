@@ -26,45 +26,45 @@ function Header() {
     const toggleMenu = useCallback(() => setIsMenuOpen(prev => !prev), []);
     const closeMenu = useCallback(() => setIsMenuOpen(false), []);
 
-   useEffect(() => {
-  const handleClickOutside = (event: MouseEvent) => {
-    const target = event.target as HTMLElement;
-    if (
-      isMenuOpen &&
-      !target.closest('.mobile-menu') &&
-      !target.closest('.menu-toggle')
-    ) {
-      closeMenu();
-    }
-  };
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            const target = event.target as HTMLElement;
+            if (
+                isMenuOpen &&
+                !target.closest('.mobile-menu') &&
+                !target.closest('.menu-toggle')
+            ) {
+                closeMenu();
+            }
+        };
 
-  const handleEscapeKey = (event: KeyboardEvent) => {
-    if (event.key === 'Escape' && isMenuOpen) {
-      closeMenu();
-    }
-  };
+        const handleEscapeKey = (event: KeyboardEvent) => {
+            if (event.key === 'Escape' && isMenuOpen) {
+                closeMenu();
+            }
+        };
 
-  document.addEventListener('mousedown', handleClickOutside);
-  document.addEventListener('keydown', handleEscapeKey);
+        document.addEventListener('mousedown', handleClickOutside);
+        document.addEventListener('keydown', handleEscapeKey);
 
-  return () => {
-    document.removeEventListener('mousedown', handleClickOutside);
-    document.removeEventListener('keydown', handleEscapeKey);
-  };
-}, [isMenuOpen]);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+            document.removeEventListener('keydown', handleEscapeKey);
+        };
+    }, [isMenuOpen]);
 
     return (
         <>
-            <header className="w-full absolute top-0 left-0 z-[100] flex justify-center transition-all duration-300 origin-top py-5">
+            <header className="w-full absolute top-0 left-0 z-[100] flex justify-center transition-all duration-300 origin-top py-4">
                 <div className="2xl:w-[75%] xl:w-[85%] lg:w-[90%] md:w-[95%] w-[98%] md:px-0 px-4 h-auto flex items-center justify-between">
-                    
+
                     {/* Logo */}
                     <div className="flex justify-center items-center flex-shrink-0">
-                        <img 
-                            src={Logo} 
-                            className="xl:w-[230px] lg:w-[200px] md:w-[180px] sm:w-[160px] w-[120px] h-auto" 
-                            alt="Logo" 
-                            loading="lazy" 
+                        <img
+                            src={Logo}
+                            className="xl:w-[180px] lg:w-[100px] md:w-[180px] sm:w-[170px] w-[140px] h-auto"
+                            alt="Logo"
+                            loading="lazy"
                         />
                     </div>
 
@@ -84,9 +84,8 @@ function Header() {
 
             {/* Menu Overlay */}
             <div
-                className={`fixed inset-0 bg-[#1c184c] backdrop-blur-sm z-[200] transition-all duration-500 ease-in-out ${
-                    isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
-                }`}
+                className={`fixed inset-0 bg-[#1c184c] backdrop-blur-sm z-[200] transition-all duration-500 ease-in-out ${isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+                    }`}
                 onClick={closeMenu}
             >
                 {/* Close Button */}
@@ -100,13 +99,12 @@ function Header() {
 
                 {/* Menu Content */}
                 <div
-                    className={`mobile-menu w-full h-full flex flex-col items-center justify-center transition-all duration-700 ease-out ${
-                        isMenuOpen ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-10'
-                    }`}
+                    className={`mobile-menu w-full h-full flex flex-col items-center justify-center transition-all duration-700 ease-out ${isMenuOpen ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-10'
+                        }`}
                     onClick={(e) => e.stopPropagation()}
                 >
                     {/* Main Navigation */}
-                    <nav className="flex flex-col items-center gap-y-4 sm:gap-y-6 lg:gap-y-8 mb-8 sm:mb-12">
+                    <nav className="flex flex-col items-center gap-y-3 mb-5">
                         {navigationData.text.map((text, index) => (
                             <Link
                                 key={text}
@@ -120,7 +118,7 @@ function Header() {
                                     transitionDelay: isMenuOpen ? `${index * 100}ms` : '0ms'
                                 }}
                             >
-                                <span className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl text-white font-light group-hover:text-[#00C0FF] transition-colors duration-300">
+                                <span className="2xl:text-2xl sm:text-3xl lg:text-2xl text-white font-light group-hover:text-[#00C0FF] transition-colors duration-300">
                                     {text}
                                 </span>
                             </Link>
@@ -128,17 +126,17 @@ function Header() {
                     </nav>
 
                     {/* Line Separator */}
-                    <div className="w-32 sm:w-48 h-0.5 bg-gradient-to-r from-transparent via-white/50 to-transparent mb-8 sm:mb-12" />
+                    <div className="w-32 sm:w-48 h-0.5 bg-gradient-to-r from-transparent via-white/50 to-transparent mb-5" />
 
                     {/* Social Icons */}
-                    <div className="flex gap-x-6 sm:gap-x-8">
+                    <div className="flex gap-x-5 sm:gap-x-7">
                         {navigationData.icons.map(({ icon, link, target }, index) => (
                             <a
                                 key={index}
                                 href={link}
                                 target={target}
                                 rel="noopener noreferrer"
-                                className="text-2xl sm:text-3xl lg:text-4xl p-3 sm:p-4 text-white/80 border-2 border-white/30 rounded-full hover:bg-[#00C0FF] hover:text-white hover:border-[#00C0FF] hover:scale-110 transition-all duration-300 backdrop-blur-sm"
+                                className="text-2xl sm:text-3xl lg:text-xl p-2 sm:p-3 text-white/80 border-2 border-white/30 rounded-full hover:bg-[#00C0FF] hover:text-white hover:border-[#00C0FF] hover:scale-110 transition-all duration-300 backdrop-blur-sm"
                                 style={{
                                     transitionDelay: isMenuOpen ? `${(navigationData.text.length + index) * 100}ms` : '0ms'
                                 }}
@@ -148,12 +146,6 @@ function Header() {
                         ))}
                     </div>
 
-                    {/* Background Animations */}
-                    <div className="absolute inset-0 pointer-events-none">
-                        <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-[#00C0FF]/10 rounded-full blur-3xl animate-pulse" />
-                        <div className="absolute top-3/4 right-1/4 w-24 h-24 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
-                        <div className="absolute bottom-1/4 left-1/3 w-20 h-20 bg-pink-500/10 rounded-full blur-3xl animate-pulse delay-500" />
-                    </div>
                 </div>
             </div>
         </>
