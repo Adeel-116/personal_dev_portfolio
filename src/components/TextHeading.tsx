@@ -37,7 +37,7 @@ const TextHeading: React.FC<TextHeadingProps> = ({ heading, text }) => {
     }, [isInView]);
 
     return (
-        <div ref={headingRef} className="text-center mb-16 relative overflow-hidden">
+        <div ref={headingRef} className="text-center  relative overflow-hidden">
         
             {/* Small Heading with Enhanced Gradient */}
             <h4 

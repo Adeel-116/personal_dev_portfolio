@@ -4,7 +4,7 @@ import Avatar from "../../assets/image.png";
 const HeroSection = () => {
   return (
     <section className="lg:h-screen md:h-auto lg:mt-0 md:mt-45 mt-35 w-full flex flex-col lg:flex-row">
-      {/* Text Content */}
+
       <div className="flex-1 flex flex-col justify-center items-center px-2">
         <div className="w-full max-w-3xl">
           <div className="text-center lg:text-left mb-6">
@@ -15,12 +15,11 @@ const HeroSection = () => {
               Adeel
             </h1>
           </div>
-
-          <p className="2xl:text-xl sm:text-[15px] text-sm text-white font-medium leading-relaxed lg:text-left text-center xl:w-full lg:w-[90%] md:w-[75%] animate-fadeIn delay-200">
-            I am a Software Engineer with extensive experience in building
-            websites, web applications, and mobile applications. With more than
-            3 years of experience, I also work as a part-time freelancer on Freelancer.com.
-          </p>
+<p className="text-sm sm:text-[15px] 2xl:text-xl text-white font-medium leading-relaxed text-center animate-fadeIn delay-200">
+  I am a Software Engineer with extensive experience in building
+  websites, web applications, and mobile applications. With more than
+  3 years of experience, I also work as a part-time freelancer on Freelancer.com.
+</p>
 
           <div className="mt-8 flex justify-center lg:justify-start animate-fadeIn delay-300">
             <Button aria-label="Contact Muhammad Adeel" />
