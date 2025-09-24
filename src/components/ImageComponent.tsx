@@ -121,16 +121,16 @@ function ImageComponent() {
   return (
     <div className="relative w-full min-h-[600px]">
       {/* Background Image */}
-      <div 
-        className="fixed inset-0 z-0"
-        style={{
-          backgroundImage: `url(${bgImage})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          backgroundAttachment: 'fixed'
-        }}
-      />
+    <div 
+  className="fixed inset-0 z-0 bg-[#1E1649]"
+  style={{
+    backgroundImage: `url(${bgImage})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundAttachment: 'fixed'
+  }}
+/>
 
       {/* Content Container */}
       <div className="relative z-10 min-h-screen flex flex-col">

@@ -15,11 +15,11 @@ const HeroSection = () => {
               Adeel
             </h1>
           </div>
-<p className="text-sm sm:text-[15px] 2xl:text-xl text-white font-medium leading-relaxed text-center animate-fadeIn delay-200">
-  I am a Software Engineer with extensive experience in building
-  websites, web applications, and mobile applications. With more than
-  3 years of experience, I also work as a part-time freelancer on Freelancer.com.
-</p>
+          <p className="text-sm sm:text-[15px] 2xl:text-xl text-center lg:text-left text-white font-medium leading-relaxed animate-fadeIn delay-200">
+            I am a Software Engineer with extensive experience in building
+            websites, web applications, and mobile applications. With more than
+            3 years of experience, I also work as a part-time freelancer on Freelancer.com.
+          </p>
 
           <div className="mt-8 flex justify-center lg:justify-start animate-fadeIn delay-300">
             <Button aria-label="Contact Muhammad Adeel" />
@@ -28,7 +28,7 @@ const HeroSection = () => {
       </div>
 
       {/* Image Content */}
-   <div className="flex-1 flex justify-center lg:justify-end items-center z-50 lg:py-0 py-15">
+      <div className="flex-1 flex justify-center lg:justify-end items-center z-50 lg:py-0 py-15">
         <img
           src={Avatar}
           alt="Portrait of Muhammad Adeel, Software Engineer"

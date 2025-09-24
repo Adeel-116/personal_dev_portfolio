@@ -15,8 +15,8 @@ function Header() {
 
     // Navigation data
     const navigationData = useMemo(() => ({
-        text: ["Home", "About", "Services", "Portfolio", "Blogs", "Contact"],
-        scrollTargets: ["home", "about", "services", "portfolio", "blogs", "contact"],
+        text: ["Home", "About", "Services", "Portfolio", "Contact"],
+        scrollTargets: ["home", "about", "services", "portfolio", "contact"],
         icons: [
             { icon: <FaLinkedinIn />, link: "https://linkedin.com", target: "_blank" },
             { icon: <LuGithub />, link: "https://github.com", target: "_blank" },
