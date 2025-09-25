@@ -10,6 +10,7 @@ import {
 import TextHeading from "../TextHeading";
 import Convex from "../../assets/convex4.png"
 import Estore from "../../assets/e-store01.png"
+import Travel from "../../assets/travel-website.png"
 //
 const portfolioData = [
   {
@@ -40,8 +41,7 @@ const portfolioData = [
     title: "Dashboard Analytics",
     description:
       "Interactive data visualization dashboard with real-time insights and custom charts.",
-    image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
+    image: Travel,
     technologies: ["Next.js", "D3.js", "TypeScript", "PostgreSQL"],
     category: "web",
     liveUrl: "#",
