@@ -11,6 +11,8 @@ import TextHeading from "../TextHeading";
 import Convex from "../../assets/convex4.png"
 import Estore from "../../assets/e-store01.png"
 import Travel from "../../assets/travel-website.png"
+import Ecom from "../../assets/ecom.png"
+import food from "../../assets/food-website.png"
 //
 const portfolioData = [
   {
@@ -53,8 +55,7 @@ const portfolioData = [
     title: "Social Media Platform",
     description:
       "Modern social networking platform with real-time messaging and content sharing.",
-    image:
-      "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop",
+    image: Ecom,
     technologies: ["Flutter", "Firebase", "WebRTC", "GraphQL"],
     category: "mobile",
     liveUrl: "#",
@@ -66,8 +67,7 @@ const portfolioData = [
     title: "Brand Identity System",
     description:
       "Complete brand identity design with modern aesthetics and comprehensive guidelines.",
-    image:
-      "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop",
+    image: food,
     technologies: ["Figma", "Adobe CC", "Sketch", "Principle"],
     category: "design",
     liveUrl: "#",
