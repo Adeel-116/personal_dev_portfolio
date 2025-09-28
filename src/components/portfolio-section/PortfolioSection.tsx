@@ -13,6 +13,8 @@ import Estore from "../../assets/e-store01.png"
 import Travel from "../../assets/travel-website.png"
 import Ecom from "../../assets/ecom.png"
 import food from "../../assets/food-website.png"
+import Portfolio_pic from  "../../assets/portfolio-website.png"
+import ComplainApp from "../../assets/complain-app.png"
 //
 const portfolioData = [
   {
@@ -79,8 +81,19 @@ const portfolioData = [
     title: "Fintech Dashboard",
     description:
       "Advanced financial analytics platform with real-time market data and portfolio tracking.",
-    image:
-      "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&h=400&fit=crop",
+    image: Portfolio_pic,
+    technologies: ["Vue.js", "Chart.js", "Node.js", "MySQL"],
+    category: "web",
+    liveUrl: "#",
+    githubUrl: "#",
+    featured: true,
+  },
+  {
+    id: 7,
+    title: "App Development",
+    description:
+      "Advanced financial analytics platform with real-time market data and portfolio tracking.",
+    image: ComplainApp,
     technologies: ["Vue.js", "Chart.js", "Node.js", "MySQL"],
     category: "web",
     liveUrl: "#",
