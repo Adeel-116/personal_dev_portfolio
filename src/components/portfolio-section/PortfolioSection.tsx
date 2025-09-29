@@ -199,7 +199,6 @@ export default function Portfolio() {
           />
         </div>
 
-        {/* Enhanced category filter */}
         <div
           className={`flex justify-center gap-4 flex-wrap mb-16 transition-all duration-1000 delay-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
@@ -241,12 +240,7 @@ export default function Portfolio() {
                 transitionDelay: `${index * 0.1}s`,
               }}
             >
-              {/* Featured badge */}
-              {/* {project.featured && (
-                <div className="absolute top-4 left-4 z-10 bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-3 py-1 rounded-full text-xs font-bold">
-                  Featured
-                </div>
-              )} */}
+            
 
               {/* Project image with overlay */}
               <div className="relative h-70 overflow-hidden">

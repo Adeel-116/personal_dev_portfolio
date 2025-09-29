@@ -10,6 +10,9 @@ const Footer = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [email, setEmail] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSubscribed, setIsSubscribed] = useState(false);
+  const [error, setError] = useState("");
   const footerRef = useRef(null);
 
   useEffect(() => {
@@ -30,7 +33,7 @@ const Footer = () => {
 
   const scrollToTop = useCallback(() => window.scrollTo({ top: 0, behavior: 'smooth' }), []);
 
-  const scrollToSection = useCallback((section:any) => {
+  const scrollToSection = useCallback((section: any) => {
     scroller.scrollTo(section, { duration: 500, smooth: true, offset: -100 });
   }, []);
 
@@ -43,19 +46,80 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { name: "LinkedIn", icon: <FaLinkedinIn />, href: "https://linkedin.com", color: "hover:text-blue-400" },
-    { name: "GitHub", icon: <LuGithub />, href: "https://github.com", color: "hover:text-gray-400" },
-    { name: "Twitter", icon: <FaTwitter />, href: "https://twitter.com", color: "hover:text-blue-300" },
-    { name: "Instagram", icon: <FaInstagram />, href: "https://instagram.com", color: "hover:text-pink-400" }
+    {
+      name: "LinkedIn",
+      icon: <FaLinkedinIn />,
+      href: "https://linkedin.com",
+      color: "hover:text-blue-400",
+      ariaLabel: "Visit my LinkedIn profile"
+    },
+    {
+      name: "GitHub",
+      icon: <LuGithub />,
+      href: "https://github.com",
+      color: "hover:text-gray-400",
+      ariaLabel: "Visit my GitHub profile"
+    },
+    {
+      name: "Twitter",
+      icon: <FaTwitter />,
+      href: "https://twitter.com",
+      color: "hover:text-blue-300",
+      ariaLabel: "Visit my Twitter profile"
+    },
+    {
+      name: "Instagram",
+      icon: <FaInstagram />,
+      href: "https://instagram.com",
+      color: "hover:text-pink-400",
+      ariaLabel: "Visit my Instagram profile"
+    }
   ];
 
   const contactInfo = [
-  { icon: <MdOutlineMail />, text: "adeel8128377@gmail.com", href: "mailto:adeel8128377@gmail.com" },
-  { icon: <MdPhone />, text: "+92 342 2815470", href: "tel:+923422815470" },
-  { icon: <MdLocationOn />, text: "Karachi, Pakistan", href: "https://www.google.com/maps/search/Karachi,+Pakistan" }
-];
+    {
+      icon: <MdOutlineMail />,
+      text: "adeel8128377@gmail.com",
+      href: "mailto:adeel8128377@gmail.com",
+      ariaLabel: "Send an email to adeel8128377@gmail.com"
+    },
+    {
+      icon: <MdPhone />,
+      text: "+92 342 2815470",
+      href: "tel:+923422815470",
+      ariaLabel: "Call +92 342 2815470"
+    },
+    {
+      icon: <MdLocationOn />,
+      text: "Karachi, Pakistan",
+      href: "https://www.google.com/maps/search/Karachi,+Pakistan",
+      ariaLabel: "View location in Karachi, Pakistan on Google Maps"
+    }
+  ];
 
   const currentYear = new Date().getFullYear();
+
+  const handleSubscribe = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    setError("");
+
+    if (!email.includes("@")) {
+      setError("Please enter a valid email.");
+      return;
+    }
+
+    setIsLoading(true);
+    try {
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      setIsSubscribed(true);
+      setEmail(""); // clear input
+      setTimeout(() => setIsSubscribed(false), 3000);
+    } catch {
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <>
@@ -71,7 +135,7 @@ const Footer = () => {
               </p>
               <div className="flex space-x-3">
                 {socialLinks.map((social) => (
-                  <a key={social.name} href={social.href} target="_blank" rel="noopener noreferrer" className={`text-xl p-2 rounded-full bg-white/10 hover:scale-110 transition-all duration-300 ${social.color}`}>
+                  <a key={social.name} href={social.href} aria-label={social.ariaLabel} target="_blank" rel="noopener noreferrer" className={`text-xl p-2 rounded-full bg-white/10 hover:scale-110 transition-all duration-300 ${social.color}`}>
                     {social.icon}
                   </a>
                 ))}
@@ -79,14 +143,14 @@ const Footer = () => {
             </div>
 
             {/* Quick Links */}
-            <div className="text-center lg:text-left lg:pl-7">
-              <h4 className="text-lg font-semibold text-[#00C0FF] mb-4">Quick Links</h4>
+            <div className="text-center lg:text-left lg:pl-7 ">
+              <h2 className="text-lg font-semibold text-[#00C0FF] mb-4">Quick Links</h2>
               <ul className="space-y-2">
                 {navigationLinks.map((link) => (
                   <li key={link.name}>
-                    <button 
-                      onClick={() => scrollToSection(link.section)} 
-                      className="text-white hover:text-[#00C0FF] text-[16px] transition-colors duration-300 text-sm"
+                    <button
+                      onClick={() => scrollToSection(link.section)}
+                      className="text-white hover:text-[#00C0FF]  cursor-pointer text-[16px] transition-colors duration-300 text-sm"
                     >
                       {link.name}
                     </button>
@@ -97,14 +161,12 @@ const Footer = () => {
 
             {/* Contact Info */}
             <div className="text-center lg:text-left">
-              <h4 className="text-lg font-semibold text-[#00C0FF] mb-4">Get In Touch</h4>
-              <ul className="space-y-3">
+              <h2 className="text-lg font-semibold text-[#00C0FF] mb-4">Get In Touch</h2>
+              <ul className="space-y-3 cursor-pointer">
                 {contactInfo.map((contact, idx) => (
                   <li key={idx} className="flex justify-center lg:justify-start items-center gap-3 text-white hover:text-[#00C0FF] text-[15px]">
                     <span>{contact.icon}</span>
-    
-                      <a href={contact.href} target="--blank" className="break-words text-white hover:text-[#00C0FF]">{contact.text}</a>
-                    
+                    <a href={contact.href} aria-label={contact.ariaLabel} target="--blank" className="break-words text-white hover:text-[#00C0FF]">{contact.text}</a>
                   </li>
                 ))}
               </ul>
@@ -112,15 +174,29 @@ const Footer = () => {
 
             {/* Newsletter */}
             <div>
-              <h4 className="text-lg font-semibold text-[#00C0FF] mb-4">Stay Updated</h4>
+              <h2 className="text-lg font-semibold text-[#00C0FF] mb-4">Stay Updated</h2>
               <p className="text-white text-[14px] mb-4">Subscribe to get the latest update</p>
               <div className="flex flex-col sm:flex-row gap-2">
-                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Enter your email" className="flex-1 px-3 py-2 bg-white/10 text-white rounded-md text-sm" />
-                <button className="px-4 py-2 bg-gradient-to-r from-[#00C0FF] to-blue-400 rounded-md text-sm">
-                  {/* {isLoading ? 'Loading...' : isSubscribed ? 'Subscribed ✓' : 'Subscribe'} */}
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Enter your email"
+                  className="flex-1 px-3 py-2 bg-white/10 text-white rounded-md text-sm"
+                  aria-label="Enter your email"
+                />
+                <button
+                  onClick={handleSubscribe}
+                  disabled={isLoading || isSubscribed}
+                  className={`px-4 py-2 bg-gradient-to-r cursor-pointer from-[#00C0FF] to-blue-400 rounded-md text-sm ${isLoading || isSubscribed ? 'opacity-50 cursor-not-allowed' : 'hover:scale-105 transition-transform duration-150'}`}
+                >
+                  {isLoading ? 'Loading...' : isSubscribed ? 'Subscribed ✓' : 'Subscribe'}
                 </button>
               </div>
+              {error && <p className="text-red-400 text-sm mt-2">{error}</p>}
             </div>
+
+
           </div>
 
           {/* Divider */}
@@ -132,13 +208,13 @@ const Footer = () => {
         </div>
       </footer>
 
-      {/* Back to Top */}
+
       <button
         onClick={scrollToTop}
         className={`fixed bottom-4 sm:bottom-8 right-4 sm:right-8 p-3 sm:p-4 bg-gradient-to-r from-[#00C0FF] to-blue-400 text-white rounded-full shadow-lg transition-all duration-300 hover:scale-110 z-50 ${showBackToTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'}`}
         aria-label="Back to top"
       >
-        <IoArrowUp className="text-lg sm:text-xl"  />
+        <IoArrowUp className="text-lg sm:text-xl" />
       </button>
     </>
   );

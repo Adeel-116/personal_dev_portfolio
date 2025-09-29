@@ -18,8 +18,8 @@ function Header() {
         text: ["Home", "About", "Services", "Portfolio", "Contact"],
         scrollTargets: ["home", "about", "services", "portfolio", "contact"],
         icons: [
-            { icon: <FaLinkedinIn />, link: "https://www.linkedin.com/in/muhammad-adeel-4561bb255", target: "_blank" },
-            { icon: <LuGithub />, link: "https://github.com/Adeel-116", target: "_blank" },
+            { icon: <FaLinkedinIn />, link: "https://www.linkedin.com/in/muhammad-adeel-4561bb255", target: "_blank", ariaLabel: "LinkedIn" },
+            { icon: <LuGithub />, link: "https://github.com/Adeel-116", target: "_blank", ariaLabel: "github"  },
         ],
     }), []);
 
@@ -130,16 +130,18 @@ function Header() {
 
                     {/* Social Icons */}
                     <div className="flex gap-x-5 sm:gap-x-7">
-                        {navigationData.icons.map(({ icon, link, target }, index) => (
+                        {navigationData.icons.map(({ icon, link, target, ariaLabel }, index) => (
                             <a
                                 key={index}
                                 href={link}
                                 target={target}
                                 rel="noopener noreferrer"
+                                aria-label={ariaLabel}
                                 className="text-2xl sm:text-3xl lg:text-xl p-2 sm:p-3 text-white/80 border-2 border-white/30 rounded-full hover:bg-[#00C0FF] hover:text-white hover:border-[#00C0FF] hover:scale-110 transition-color duration-200 backdrop-blur-sm"
                                 style={{
                                     transitionDelay: isMenuOpen ? `${(navigationData.text.length + index) * 0.11}ms` : '0ms'
                                 }}
+
                             >
                                 {icon}
                             </a>

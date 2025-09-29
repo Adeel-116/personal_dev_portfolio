@@ -49,7 +49,7 @@ function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSuccess("");
-    setLoading(true); // ✅ start loading
+    setLoading(true); 
 
     try {
       const response = await fetch("https://email-integration-5maq.vercel.app/api/email/", {
@@ -78,7 +78,7 @@ function Contact() {
       console.error("Error submitting form:", error);
       setSuccess("⚠️ Something went wrong. Please try again later.");
     } finally {
-      setLoading(false); // ✅ stop loading
+      setLoading(false);
     }
   };
 
