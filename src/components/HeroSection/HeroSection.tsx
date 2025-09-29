@@ -16,9 +16,9 @@ const HeroSection = () => {
             </h1>
           </div>
           <p className="text-sm sm:text-[15px] 2xl:text-xl text-center lg:text-left text-white font-medium leading-relaxed animate-fadeIn delay-200">
-            I am a Software Engineer with extensive experience in building
-            websites, web applications, and mobile applications. With more than
-            3 years of experience, I also work as a part-time freelancer on Freelancer.com.
+            🚀 Looking to <span className="text-orange-400 font-semibold">Enhance your brand with powerful digital solutions</span>?
+            I’m a <span className="text-cyan-400 font-semibold">Full-Stack Develope</span> who builds modern websites, scalable web apps, and mobile applications.
+            As a dedicated <span className="text-green-400 font-semibold">Freelancer</span>, I turn ideas into impactful digital experiences.
           </p>
 
           <div className="mt-8 flex justify-center lg:justify-start animate-fadeIn delay-300">

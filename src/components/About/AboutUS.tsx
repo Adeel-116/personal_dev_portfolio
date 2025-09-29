@@ -29,31 +29,24 @@ function AboutUS() {
         <div className="lg:w-1/2 md:py-0 py-5 flex flex-col justify-center items-center lg:items-start gap-y-5 text-white text-center lg:text-left px-5 2xl:pl-20">
           <div className="text-[16px] xl:text-[17px] 2xl:text-[18px] leading-relaxed max-w-[90%] lg:w-auto">
             <p className="mb-4">
-              I'm{" "}
-              <span className="text-[#00c0ff] font-semibold">
-                Muhammad Adeel
-              </span>
-              , a Final Year Computer Science student and{" "}
-              <strong>Full-Stack Developer</strong> specializing in{" "}
-              <strong>React.js</strong>, <strong>Node.js</strong>, and{" "}
-              <strong>React Native</strong>.
+              I’m a <strong className="text-[#00c0ff]">Full-Stack Developer</strong> passionate about building
+              <strong> modern websites</strong>, <strong>scalable web apps</strong>, and
+              <strong> cross-platform mobile applications</strong> using the latest technologies.
             </p>
 
             <p className="mb-4">
-              With 4+ years of experience, I create responsive websites and
-              cross-platform mobile apps with a focus on clean UI, performance,
-              and scalability.
+              My focus is on delivering <strong>clean UI/UX</strong>, high performance, and
+              <strong> future-ready digital solutions</strong> that help brands grow online.
             </p>
 
             <p className="mb-4">
-              <strong className="text-[#00c0ff]">Tech Stack:</strong> React.js,
-              Next.js, Tailwind, Node.js, Express.js, REST APIs, MongoDB,
-              PostgreSQL, React Native, Flutter.
+              <strong className="text-[#00c0ff]">Tech Stack:</strong> React.js, Next.js, Tailwind CSS,
+              Node.js, Express.js, REST APIs, MongoDB, PostgreSQL, React Native, Flutter.
             </p>
 
             <p>
-              I love building real-world solutions and constantly learning new
-              technologies to grow as a developer.
+              I enjoy solving real-world problems, staying up-to-date with new technologies, and
+              collaborating as a <strong>Freelancer</strong> to turn ideas into powerful digital products. 🚀
             </p>
           </div>
 

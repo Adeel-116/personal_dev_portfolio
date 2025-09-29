@@ -5,7 +5,7 @@ import Button from "../Button";
 import TextHeading from "../TextHeading";
 
 function Contact() {
-  const [formData] = useState({
+  const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
@@ -13,63 +13,120 @@ function Contact() {
     message: "",
   });
 
+  const [success, setSuccess] = useState("");
+  const [loading, setLoading] = useState(false); // ✅ new state
+
+  // Contact Info Array
+  const contactInfo = [
+    {
+      icon: <IoLocationSharp size={30} color="#ffffff" />,
+      title: "Location",
+      value: "Karachi, Pakistan",
+      link: "https://www.google.com/maps/place/Karachi,+Pakistan",
+    },
+    {
+      icon: <MdEmail size={30} color="#ffffff" />,
+      title: "Email",
+      value: "adeel8128377@gmail.com",
+      link: "mailto:adeel8128377@gmail.com",
+    },
+    {
+      icon: <IoCallSharp size={30} color="#ffffff" />,
+      title: "Phone",
+      value: "+92 342 2815470",
+      link: "tel:+923422815470",
+    },
+  ];
+
+  // Handle input changes
+  const handleChange = (e: any) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  // Handle form submit
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSuccess("");
+    setLoading(true); // ✅ start loading
+
+    try {
+      const response = await fetch("http://localhost:5000/api/email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSuccess("✅ Email sent successfully!");
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: "",
+        });
+      } else {
+        setSuccess("❌ Failed to send email. Try again.");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setSuccess("⚠️ Something went wrong. Please try again later.");
+    } finally {
+      setLoading(false); // ✅ stop loading
+    }
+  };
+
   return (
     <>
       <div className="pt-10">
         <TextHeading heading="Contact" text="I want to hear from you" />
-        <div className="w-full h-auto flex lg:flex-row flex-col justify-center items-center mt-2">
+        <div className="w-full h-auto flex lg:flex-row flex-col mt-2">
           {/* Left Side - Contact Info */}
-          <div className="lg:w-1/2 sm:w-[80%] w-[95%] h-auto justify-center items-center flex flex-col gap-y-3 p-5">
-            {/* Location */}
-            <div className="w-full h-auto flex flex-row">
-              <div className="w-fit sm:py-7 sm:px-7 p-3 bg-[#00c0ff] rounded-full">
-                <IoLocationSharp size={30} color="#ffffff" />
-              </div>
-              <div className="flex flex-col text-left sm:gap-y-1 sm:px-5 sm:py-3 px-2">
-                <h1 className="text-white font-semibold sm:text-2xl text-lg">Location</h1>
-                <p className="text-[#b4afc6] font-semibold">
-                  Karachi, Pakistan
-                </p>
-              </div>
-            </div>
-
-            {/* Email */}
-            <div className="w-full h-auto flex flex-row">
-              <div className="w-fit sm:py-7 sm:px-7 p-3 bg-[#00c0ff] rounded-full">
-                <MdEmail size={30} color="#ffffff" />
-              </div>
-              <div className="flex flex-col text-left sm:gap-y-1 sm:px-5 sm:py-3 px-2">
-                <h1 className="text-white font-semibold sm:text-2xl text-lg">Email</h1>
-                <p className="text-[#b4afc6] font-semibold">
-                  adeel8128377@gmail.com
-                </p>
-              </div>
-            </div>
-
-            {/* Phone */}
-            <div className="w-full h-auto flex flex-row">
-              <div className="w-fit sm:py-7 sm:px-7 p-3 bg-[#00c0ff] rounded-full">
-                <IoCallSharp size={30} color="#ffffff" />
-              </div>
-              <div className="flex flex-col text-left sm:gap-y-1 sm:px-5 sm:py-3 px-2">
-                <h1 className="text-white font-semibold sm:text-2xl text-lg">Phone</h1>
-                <p className="text-[#b4afc6] font-semibold">
-                  +92 336 554488
-                </p>
-              </div>
-            </div>
+          <div className="lg:w-[40%] sm:w-[80%] w-[95%] h-auto flex flex-col gap-y-3 p-5">
+            {contactInfo.map((item, index) => (
+              <a
+                key={index}
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full h-auto flex flex-row items-center group cursor-pointer"
+              >
+                <div className="w-fit sm:py-5 sm:px-5 p-2 bg-[#00c0ff] rounded-full transition-transform duration-200 group-hover:scale-110">
+                  {item.icon}
+                </div>
+                <div className="flex flex-col text-left sm:gap-y-1 sm:px-5 sm:py-3 px-2">
+                  <h1 className="text-white font-semibold sm:text-2xl text-lg">
+                    {item.title}
+                  </h1>
+                  <p className="text-[#b4afc6] font-semibold group-hover:text-[#00c0ff]">
+                    {item.value}
+                  </p>
+                </div>
+              </a>
+            ))}
           </div>
 
           {/* Right Side - Form */}
-          <div className="lg:w-1/2 sm:w-[90%] w-[95%] h-auto flex flex-col justify-center items-center">
+          <div className="lg:w-[60%] sm:w-[90%] w-[95%] h-auto flex flex-col justify-center items-center">
             <div className="w-full p-5 font-sans">
-              <form className="flex flex-col gap-5 text-white">
+              <form
+                className="flex flex-col gap-5 text-white"
+                onSubmit={handleSubmit}
+              >
                 <div className="flex flex-col sm:flex-row gap-5">
                   <div className="flex-1">
                     <input
                       type="text"
                       name="name"
                       value={formData.name}
+                      onChange={handleChange}
                       placeholder="Your Name"
                       className="w-full p-3 border border-[#625A7C] rounded focus:outline-none focus:ring-2 focus:ring-[#00c0ff]"
                       required
@@ -80,6 +137,7 @@ function Contact() {
                       type="email"
                       name="email"
                       value={formData.email}
+                      onChange={handleChange}
                       placeholder="Your Email"
                       className="w-full p-3 border border-[#625A7C] rounded focus:outline-none focus:ring-2 focus:ring-[#00c0ff]"
                       required
@@ -93,6 +151,7 @@ function Contact() {
                       type="tel"
                       name="phone"
                       value={formData.phone}
+                      onChange={handleChange}
                       placeholder="Your Phone"
                       className="w-full p-3 border border-[#625A7C] rounded focus:outline-none focus:ring-2 focus:ring-[#00c0ff]"
                     />
@@ -102,6 +161,7 @@ function Contact() {
                       type="text"
                       name="subject"
                       value={formData.subject}
+                      onChange={handleChange}
                       placeholder="Subject"
                       className="w-full p-3 border border-[#625A7C] rounded focus:outline-none focus:ring-2 focus:ring-[#00c0ff]"
                     />
@@ -112,12 +172,26 @@ function Contact() {
                   <textarea
                     name="message"
                     value={formData.message}
+                    onChange={handleChange}
                     placeholder="Write your message here"
                     className="w-full p-3 border border-[#625A7C] rounded h-40 focus:outline-none focus:ring-2 focus:ring-[#00c0ff]"
                     required
                   />
                 </div>
-                <Button />
+
+                {/* ✅ Button shows loading */}
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className={`p-3 rounded bg-[#00c0ff] text-white font-semibold transition-all ${
+                    loading ? "opacity-50 cursor-not-allowed" : "hover:bg-[#00a8e0]"
+                  }`}
+                >
+                  {loading ? "Sending..." : "Submit"}
+                </button>
+
+                {/* Success Message */}
+                {success && <p className="text-green-500">{success}</p>}
               </form>
             </div>
           </div>
