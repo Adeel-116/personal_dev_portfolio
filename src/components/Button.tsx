@@ -19,6 +19,7 @@ export default function Button({
       onMouseEnter={() => setAnimation(true)}
       onMouseLeave={() => setAnimation(false)}
       onClick={onClick}
+      aria-label="get connected"
     >
       {/* Background Animation */}
       <div className="absolute inset-0 bg-white translate-y-full transition-transform duration-300 ease-in-out group-hover:translate-y-0"></div>

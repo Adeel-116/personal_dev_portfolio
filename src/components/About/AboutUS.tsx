@@ -75,7 +75,7 @@ function AboutUS() {
           </div>
 
           <div className="w-fit opacity-0 animate-slideInUp" style={{ animationDelay: '1s', animationFillMode: 'forwards' }}>
-            <Button buttonTile="Contact Us" onClick={scrollToContact}/>
+            <Button buttonTile="Contact Us" onClick={scrollToContact} />
           </div>
         </div>
       </div>
