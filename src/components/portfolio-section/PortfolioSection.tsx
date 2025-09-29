@@ -157,7 +157,7 @@ export default function Portfolio() {
   const [activeCard, setActiveCard] = useState<number | null>(null);
 
   const sectionRef = useRef<HTMLElement | null>(null);
-  const projectsRef = useRef<(HTMLDivElement | null)[]>([]);
+const projectsRef = useRef<Array<HTMLDivElement | null>>([]);
 
   useEffect(() => {
     if (activeCategory === "all") {
@@ -226,7 +226,7 @@ export default function Portfolio() {
           {filteredProjects.map((project, index) => (
             <div
               key={project.id}
-              ref={(el) => (projectsRef.current[index] = el)}
+               ref={(el) => (projectsRef.current[index] = el)}
               className={`group relative bg-white/5 backdrop-blur-sm rounded-3xl overflow-hidden shadow-2xl border border-white/10 hover:border-cyan-400/50 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
               }`}
