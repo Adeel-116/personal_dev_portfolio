@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { IoLocationSharp, IoCallSharp } from "react-icons/io5";
 import { MdEmail } from "react-icons/md";
-import Button from "../Button";
 import TextHeading from "../TextHeading";
 
 function Contact() {
