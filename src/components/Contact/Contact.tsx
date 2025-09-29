@@ -88,7 +88,7 @@ function Contact() {
         <TextHeading heading="Contact" text="I want to hear from you" />
         <div className="w-full h-auto flex lg:flex-row flex-col mt-2">
           
-          <div className="lg:w-[40%] sm:w-[80%] bg-red-400 w-[95%] h-auto flex flex-col gap-y-3 p-5">
+          <div className="lg:w-[40%] sm:w-[80%] w-[95%] h-auto flex flex-col gap-y-3 p-5">
             {contactInfo.map((item, index) => (
               <a
                 key={index}
