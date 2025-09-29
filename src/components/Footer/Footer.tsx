@@ -3,14 +3,13 @@ import { LuGithub } from "react-icons/lu";
 import { MdOutlineMail, MdLocationOn, MdPhone } from "react-icons/md";
 import { IoArrowUp } from "react-icons/io5";
 import { useEffect, useState, useCallback, useRef } from "react";
+import { scroller } from "react-scroll";
 import Logo from "../../assets/bg.png";
 
 const Footer = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [email, setEmail] = useState('');
-  const [isSubscribed, setIsSubscribed] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
   const footerRef = useRef(null);
 
   useEffect(() => {
@@ -29,32 +28,18 @@ const Footer = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-
   const scrollToTop = useCallback(() => window.scrollTo({ top: 0, behavior: 'smooth' }), []);
 
-  const handleSubscribe = useCallback(async (e:React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    if (!email.includes('@')) return;
-    setIsLoading(true);
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    setIsSubscribed(true);
-    setIsLoading(false);
-    setEmail('');
-    setTimeout(() => setIsSubscribed(false), 3000);
-  }, [email]);
-
-  // const handleNavClick = useCallback((e, href) => {
-  //   e.preventDefault();
-  //   document.querySelector(href)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  // }, []);
+  const scrollToSection = useCallback((section:any) => {
+    scroller.scrollTo(section, { duration: 500, smooth: true, offset: -100 });
+  }, []);
 
   const navigationLinks = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Services", href: "#services" },
-    { name: "Portfolio", href: "#portfolio" },
-    { name: "Blogs", href: "#blogs" },
-    { name: "Contact", href: "#contact" }
+    { name: "Home", section: "home" },
+    { name: "About", section: "about" },
+    { name: "Services", section: "services" },
+    { name: "Portfolio", section: "portfolio" },
+    { name: "Contact", section: "contact" }
   ];
 
   const socialLinks = [
@@ -65,25 +50,23 @@ const Footer = () => {
   ];
 
   const contactInfo = [
-    { icon: <MdOutlineMail />, text: "adeel8128377@gmail.com", href: "mailto:adeel8128377@gmail.com" },
-    { icon: <MdPhone />, text: "+1 (555) 123-4567", href: "tel:+15551234567" },
-    { icon: <MdLocationOn />, text: "Karachi, Pakistan", href: "#" }
-  ];
+  { icon: <MdOutlineMail />, text: "adeel8128377@gmail.com", href: "mailto:adeel8128377@gmail.com" },
+  { icon: <MdPhone />, text: "+92 342 2815470", href: "tel:+923422815470" },
+  { icon: <MdLocationOn />, text: "Karachi, Pakistan", href: "https://www.google.com/maps/search/Karachi,+Pakistan" }
+];
 
   const currentYear = new Date().getFullYear();
 
   return (
     <>
       <footer id="footer" ref={footerRef} className="w-full relative bg-gradient-to-br from-[#1E1345] via-[#2A1B5C] to-[#1E1345] text-white overflow-hidden">
-       
-
-        <div className="relative z-10 2xl:w-[75%] xl:w-[85%] sm:w-[90%] mx-auto py-10 w-[95%]  py-16 px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 2xl:w-[75%] xl:w-[85%] sm:w-[90%] mx-auto py-16 px-4 sm:px-6 lg:px-8">
           <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
 
-            {/* Logo */}
+            {/* Logo & Social */}
             <div className="flex flex-col items-center lg:items-start">
               <img src={Logo} alt="Logo" className="w-[120px] sm:w-[150px] lg:w-[170px] mb-4" />
-              <p className="text-gray-300 text-center lg:text-left text-[15px] leading-relaxed mb-2">
+              <p className="text-white text-center lg:text-left text-[15px] leading-relaxed mb-2">
                 A passionate developer crafting creative digital solutions and seamless user experiences.
               </p>
               <div className="flex space-x-3">
@@ -95,15 +78,18 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Links */}
+            {/* Quick Links */}
             <div className="text-center lg:text-left lg:pl-7">
               <h4 className="text-lg font-semibold text-[#00C0FF] mb-4">Quick Links</h4>
               <ul className="space-y-2">
                 {navigationLinks.map((link) => (
                   <li key={link.name}>
-                    <a href={link.href} className="text-gray-300 hover:text-[#00C0FF] text-[16px] transition-colors duration-300 text-sm">
+                    <button 
+                      onClick={() => scrollToSection(link.section)} 
+                      className="text-white hover:text-[#00C0FF] text-[16px] transition-colors duration-300 text-sm"
+                    >
                       {link.name}
-                    </a>
+                    </button>
                   </li>
                 ))}
               </ul>
@@ -114,9 +100,11 @@ const Footer = () => {
               <h4 className="text-lg font-semibold text-[#00C0FF] mb-4">Get In Touch</h4>
               <ul className="space-y-3">
                 {contactInfo.map((contact, idx) => (
-                  <li key={idx} className="flex justify-center lg:justify-start items-center gap-3 text-gray-300 hover:text-[#00C0FF] text-[15px]">
+                  <li key={idx} className="flex justify-center lg:justify-start items-center gap-3 text-white hover:text-[#00C0FF] text-[15px]">
                     <span>{contact.icon}</span>
-                    <a href={contact.href} className="break-words">{contact.text}</a>
+    
+                      <a href={contact.href} target="--blank" className="break-words text-white hover:text-[#00C0FF]">{contact.text}</a>
+                    
                   </li>
                 ))}
               </ul>
@@ -125,11 +113,11 @@ const Footer = () => {
             {/* Newsletter */}
             <div>
               <h4 className="text-lg font-semibold text-[#00C0FF] mb-4">Stay Updated</h4>
-              <p className="text-gray-300 text-[14px] mb-4">Subscribe to get the latest update</p>
+              <p className="text-white text-[14px] mb-4">Subscribe to get the latest update</p>
               <div className="flex flex-col sm:flex-row gap-2">
                 <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Enter your email" className="flex-1 px-3 py-2 bg-white/10 text-white rounded-md text-sm" />
-                <button onClick={handleSubscribe} className="px-4 py-2 bg-gradient-to-r from-[#00C0FF] to-blue-400 rounded-md text-sm">
-                  {isLoading ? 'Loading...' : isSubscribed ? 'Subscribed ✓' : 'Subscribe'}
+                <button className="px-4 py-2 bg-gradient-to-r from-[#00C0FF] to-blue-400 rounded-md text-sm">
+                  {/* {isLoading ? 'Loading...' : isSubscribed ? 'Subscribed ✓' : 'Subscribe'} */}
                 </button>
               </div>
             </div>
@@ -137,7 +125,7 @@ const Footer = () => {
 
           {/* Divider */}
           <div className="mt-12 border-t border-white/20 pt-6 flex flex-col sm:flex-row items-center justify-between">
-            <p className="text-[15px] text-gray-400 flex items-center gap-1">
+            <p className="text-[15px] text-white flex items-center gap-1">
               © {currentYear} Muhammad Adeel. Developed & Designed by me <FaHeart className="text-red-400 animate-pulse" />
             </p>
           </div>
@@ -150,7 +138,7 @@ const Footer = () => {
         className={`fixed bottom-4 sm:bottom-8 right-4 sm:right-8 p-3 sm:p-4 bg-gradient-to-r from-[#00C0FF] to-blue-400 text-white rounded-full shadow-lg transition-all duration-300 hover:scale-110 z-50 ${showBackToTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'}`}
         aria-label="Back to top"
       >
-        <IoArrowUp className="text-lg sm:text-xl" />
+        <IoArrowUp className="text-lg sm:text-xl"  />
       </button>
     </>
   );

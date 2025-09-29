@@ -12,7 +12,7 @@ function ProgressBar({
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
-    // Intersection Observer for scroll-triggered animations
+  
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -42,7 +42,7 @@ function ProgressBar({
 
   const animateProgress = () => {
     let current = 0
-    const increment = percentage / 50 // 50 steps for smooth animation
+    const increment = percentage / 50 
     
     const timer = setInterval(() => {
       current += increment
@@ -51,7 +51,7 @@ function ProgressBar({
         clearInterval(timer)
       }
       setAnimatedPercentage(Math.round(current))
-    }, 20) // 20ms intervals for smooth animation
+    }, 20) 
   }
 
   return (
@@ -77,33 +77,18 @@ function ProgressBar({
         </div>
         
         <div className='relative w-full bg-gray-700/50 rounded-full h-3 overflow-hidden'>
-          {/* Background glow effect */}
-          <div 
-            className='absolute inset-0 rounded-full opacity-20'
-            style={{ 
-              background: `linear-gradient(90deg, transparent, ${color}, transparent)`,
-              animation: 'pulse 2s infinite'
-            }}
-          />
+         
           
           {/* Progress fill */}
           <div 
-            className='absolute left-0 top-0 h-full rounded-full transition-all duration-1000 ease-out'
+            className='absolute left-0 top-0 h-full rounded-full transition-all duration-900 ease-out'
             style={{ 
               width: `${animatedPercentage}%`,
               background: `linear-gradient(90deg, ${color}88, ${color})`,
               boxShadow: `0 0 10px ${color}66`
             }}
           />
-          
-          {/* Shine effect */}
-          <div 
-            className='absolute inset-0 rounded-full'
-            style={{
-              background: `linear-gradient(90deg, transparent 40%, rgba(255,255,255,0.3) 50%, transparent 60%)`,
-              animation: isVisible ? 'shine 2s infinite' : 'none'
-            }}
-          />
+        
         </div>
         
         {/* Skill level indicator */}
@@ -116,17 +101,7 @@ function ProgressBar({
         </div>
       </div>
       
-      <style>{`
-        @keyframes shine {
-          0% { transform: translateX(-100%); }
-          100% { transform: translateX(100%); }
-        }
-        
-        @keyframes pulse {
-          0%, 100% { opacity: 0.2; }
-          50% { opacity: 0.4; }
-        }
-      `}</style>
+     
     </div>
   )
 }
@@ -135,22 +110,18 @@ function ProgressBar({
 function SkillSection() {
   // Define your skills here - easy to add/remove/modify
 const skills = [
-  // Frontend
   { name: 'HTML', percentage: 95, color: '#e34c26', category: 'Frontend' },
   { name: 'CSS', percentage: 90, color: '#1572b6', category: 'Frontend' },
   { name: 'JavaScript', percentage: 85, color: '#f7df1e', category: 'Frontend' },
   { name: 'React', percentage: 88, color: '#61dafb', category: 'Frontend' },
   { name: 'TypeScript', percentage: 82, color: '#007acc', category: 'Frontend' },
-  { name: 'Figma', percentage: 78, color: '#f24e1e', category: 'Frontend' },
 
-  // Backend
   { name: 'Node.js', percentage: 80, color: '#68a063', category: 'Backend' },
   { name: 'Express.js', percentage: 78, color: '#000000', category: 'Backend' },
   { name: 'MongoDB', percentage: 70, color: '#4db33d', category: 'Backend' },
   { name: 'MySQL', percentage: 72, color: '#00758f', category: 'Backend' },
   { name: 'Python', percentage: 75, color: '#3776ab', category: 'Backend' },
 
-  // DevOps / Tools
   { name: 'Git', percentage: 85, color: '#f05032', category: 'DevOps' },
   { name: 'GitHub', percentage: 82, color: '#181717', category: 'DevOps' },
 ]

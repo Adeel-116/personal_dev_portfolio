@@ -18,8 +18,8 @@ function Header() {
         text: ["Home", "About", "Services", "Portfolio", "Contact"],
         scrollTargets: ["home", "about", "services", "portfolio", "contact"],
         icons: [
-            { icon: <FaLinkedinIn />, link: "https://linkedin.com", target: "_blank" },
-            { icon: <LuGithub />, link: "https://github.com", target: "_blank" },
+            { icon: <FaLinkedinIn />, link: "https://www.linkedin.com/in/muhammad-adeel-4561bb255", target: "_blank" },
+            { icon: <LuGithub />, link: "https://github.com/Adeel-116", target: "_blank" },
         ],
     }), []);
 
@@ -55,14 +55,14 @@ function Header() {
 
     return (
         <>
-            <header className="w-full absolute top-0 left-0 z-[100] flex justify-center transition-all duration-300 origin-top py-4">
+            <header className="w-full absolute top-0 left-0 z-[100] flex justify-center transition-all duration-300 origin-top py-3">
                 <div className="2xl:w-[75%] xl:w-[85%] lg:w-[90%] md:w-[95%] w-[98%] md:px-0 px-4 h-auto flex items-center justify-between">
 
                     {/* Logo */}
                     <div className="flex justify-center items-center flex-shrink-0">
                         <img
                             src={Logo}
-                            className="xl:w-[180px] lg:w-[100px] md:w-[180px] sm:w-[170px] w-[140px] h-auto"
+                            className="xl:w-[175px] lg:w-[100px] md:w-[180px] sm:w-[170px] w-[140px] h-auto"
                             alt="Logo"
                             loading="lazy"
                         />
@@ -136,9 +136,9 @@ function Header() {
                                 href={link}
                                 target={target}
                                 rel="noopener noreferrer"
-                                className="text-2xl sm:text-3xl lg:text-xl p-2 sm:p-3 text-white/80 border-2 border-white/30 rounded-full hover:bg-[#00C0FF] hover:text-white hover:border-[#00C0FF] hover:scale-110 transition-all duration-300 backdrop-blur-sm"
+                                className="text-2xl sm:text-3xl lg:text-xl p-2 sm:p-3 text-white/80 border-2 border-white/30 rounded-full hover:bg-[#00C0FF] hover:text-white hover:border-[#00C0FF] hover:scale-110 transition-color duration-200 backdrop-blur-sm"
                                 style={{
-                                    transitionDelay: isMenuOpen ? `${(navigationData.text.length + index) * 100}ms` : '0ms'
+                                    transitionDelay: isMenuOpen ? `${(navigationData.text.length + index) * 0.11}ms` : '0ms'
                                 }}
                             >
                                 {icon}

@@ -17,89 +17,80 @@ import Portfolio_pic from  "../../assets/portfolio-website.png"
 import ComplainApp from "../../assets/complain-app.png"
 //
 const portfolioData = [
+ {
+  id: 1,
+  title: "Book Publishing Branding Website",
+  description: "Revolutionary book publishing website developed for a client, featuring modern design and seamless user experience.",
+  image: Convex,
+  technologies: ["React", "Tailwind CSS", "JavaScript", "Node.js"],
+  category: "web",
+  liveUrl: "https://convex-publisher.vercel.app/",
+  githubUrl: "https://github.com/Adeel-116/Convex_publisher",
+},
   {
-    id: 1,
-    title: "Book Publishing Branding Website",
-    description:
-      "Full-stack e-commerce solution with advanced features and seamless user experience.",
-     image: Convex,
-    technologies: ["React", "Node.js", "MongoDB", "Stripe", "Tailwind"],
-    category: "web",
-    liveUrl: "https://convex-publisher.vercel.app/",
-    githubUrl: "https://github.com/Adeel-116/Convex_publisher",
-  },
+  id: 2,
+  title: "E-Commerce Landing Page",
+  description: "A responsive landing page for an E-commerce platform, built with modern web technologies and intuitive design.",
+  image: Estore, 
+  technologies: ["HTML", "CSS", "JavaScript", "Bootstrap"],
+  category: "web",
+  liveUrl: "#",
+  githubUrl: "#",
+},
   {
-    id: 2,
-    title: "AI-Powered Mobile App",
-    description:
-      "Revolutionary mobile application with machine learning capabilities and intuitive design.",
-    image: Estore,
-    technologies: ["React Native", "TensorFlow", "Firebase", "Redux"],
-    category: "mobile",
-    liveUrl: "#",
-    githubUrl: "#",
-    featured: true,
-  },
-  {
-    id: 3,
-    title: "Dashboard Analytics",
-    description:
-      "Interactive data visualization dashboard with real-time insights and custom charts.",
-    image: Travel,
-    technologies: ["Next.js", "D3.js", "TypeScript", "PostgreSQL"],
-    category: "web",
-    liveUrl: "#",
-    githubUrl: "#",
-    featured: false,
-  },
-  {
-    id: 4,
-    title: "Social Media Platform",
-    description:
-      "Modern social networking platform with real-time messaging and content sharing.",
-    image: Ecom,
-    technologies: ["Flutter", "Firebase", "WebRTC", "GraphQL"],
-    category: "mobile",
-    liveUrl: "#",
-    githubUrl: "#",
-    featured: false,
-  },
-  {
-    id: 5,
-    title: "Brand Identity System",
-    description:
-      "Complete brand identity design with modern aesthetics and comprehensive guidelines.",
-    image: food,
-    technologies: ["Figma", "Adobe CC", "Sketch", "Principle"],
-    category: "design",
-    liveUrl: "#",
-    githubUrl: "#",
-    featured: false,
-  },
-  {
-    id: 6,
-    title: "Fintech Dashboard",
-    description:
-      "Advanced financial analytics platform with real-time market data and portfolio tracking.",
-    image: Portfolio_pic,
-    technologies: ["Vue.js", "Chart.js", "Node.js", "MySQL"],
-    category: "web",
-    liveUrl: "#",
-    githubUrl: "#",
-    featured: true,
-  },
-  {
-    id: 7,
-    title: "App Development",
-    description:
-      "Advanced financial analytics platform with real-time market data and portfolio tracking.",
-    image: ComplainApp,
-    technologies: ["Vue.js", "Chart.js", "Node.js", "MySQL"],
-    category: "web",
-    liveUrl: "#",
-    githubUrl: "#",
-    featured: true,
-  },
+  id: 3,
+  title: "Traveling Website Frontend",
+  description: "Frontend of a traveling website developed from Figma designs, focusing on responsive layout and smooth user experience.",
+  image: Travel, 
+  technologies: ["React", "JavaScript", "Redux", "Tailwind CSS"],
+  category: "web",
+  liveUrl: "#",
+  githubUrl: "#",
+},
+ {
+  id: 4,
+  title: "E-Commerce Website",
+  description: "A complete e-commerce website with user authentication, shopping cart, and responsive design.",
+  image: Ecom, 
+  technologies: ["React", "CSS", "Firebase", "Redux"],
+  category: "web",
+  liveUrl: "#",
+  githubUrl: "#",
+  featured: false,
+},
+{
+  id: 5,
+  title: "Figma Design Clone",
+  description: "Frontend clone of Figma designs using HTML, CSS, and JavaScript, focusing on pixel-perfect design and responsiveness.",
+  image: food, 
+  technologies: ["HTML", "CSS", "JavaScript", "Bootstrap"],
+  category: "web",
+  liveUrl: "#",
+  githubUrl: "#",
+  featured: false,
+},
+ {
+  id: 6,
+  title: "Portfolio Website",
+  description: "A personal portfolio website showcasing projects and skills with responsive design and modern UI.",
+  image: Portfolio_pic, 
+  technologies: ["React", "Tailwind CSS", "JavaScript", "Framer Motion"],
+  category: "web",
+  liveUrl: "#",
+  githubUrl: "#",
+  featured: true,
+},
+{
+  id: 7,
+  title: "Complaint App",
+  description: "A complaint management app developed for a client using React Native, with real-time notifications and intuitive UI.",
+  image: ComplainApp, 
+  technologies: ["React Native", "React-Navigation", "Redux ToolKit", "Andriod SDK"],
+  category: "mobile",
+  liveUrl: "#",
+  githubUrl: "#",
+  featured: true,
+}
 ];
 
 const categories = [
@@ -109,7 +100,7 @@ const categories = [
   { id: "design", name: "UI/UX Design", icon: FaPaintBrush },
 ];
 
-// Custom SVG animations component
+
 const AnimatedBackground = () => (
   <div className="fixed inset-0 pointer-events-none overflow-hidden">
     <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1920 1080">
@@ -129,7 +120,7 @@ const AnimatedBackground = () => (
         />
       ))}
 
-      {/* Gradient mesh */}
+  
       <defs>
         <linearGradient id="meshGradient" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stopColor="rgba(88, 28, 135, 0.1)" />
@@ -138,7 +129,7 @@ const AnimatedBackground = () => (
         </linearGradient>
       </defs>
 
-      {/* Animated mesh lines */}
+
       <g
         stroke="url(#meshGradient)"
         strokeWidth="0.5"
@@ -286,7 +277,7 @@ export default function Portfolio() {
               </div>
 
               {/* Enhanced project content */}
-              <div className="p-6 space-y-4">
+              <div className="p-6 space-y-3.5">
                 <div className="flex justify-between items-start">
                   <div className="flex gap-3 text-sm">
                     <span className="text-cyan-400 font-medium">
@@ -305,7 +296,7 @@ export default function Portfolio() {
                   {project.title}
                 </h3>
 
-                <p className="text-gray-300 leading-relaxed">
+                <p className="text-gray-300 text-sm leading-relaxed">
                   {project.description}
                 </p>
 
