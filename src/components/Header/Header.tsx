@@ -118,7 +118,7 @@ function Header() {
                                     transitionDelay: isMenuOpen ? `${index * 100}ms` : '0ms'
                                 }}
                             >
-                                <span className="2xl:text-2xl sm:text-3xl lg:text-2xl text-white font-light group-hover:text-[#00C0FF] transition-colors duration-300">
+                                <span className="2xl:text-2xl text-3xl lg:text-2xl  text-white font-light group-hover:text-[#00C0FF] transition-colors duration-300">
                                     {text}
                                 </span>
                             </Link>
