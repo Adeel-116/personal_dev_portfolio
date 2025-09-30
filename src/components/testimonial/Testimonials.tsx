@@ -55,7 +55,7 @@ function Testimonials() {
   }, [slideNumber]);
 
   return (
-    <div className='w-full flex items-center justify-center flex-col sm:p-5 py-15'>
+    <div className='w-full flex items-center justify-center flex-col sm:p-5'>
       <TextHeading heading="Testimonials" text="What Our Clients Say" />
 
       {/* Slides */}

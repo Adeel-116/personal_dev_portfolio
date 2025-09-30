@@ -36,7 +36,7 @@ function ServiceSection() {
     ];
 
     return (
-        <section className='w-full flex flex-col items-center gap-y-2 py-20'>
+        <section className='w-full flex flex-col items-center gap-y-2 py-15'>
             <div>
                 <TextHeading heading='Services' text='What I Do for My Clients' />
             </div>

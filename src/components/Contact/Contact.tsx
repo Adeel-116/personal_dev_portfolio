@@ -18,19 +18,19 @@ function Contact() {
   // Contact Info Array
   const contactInfo = [
     {
-      icon: <IoLocationSharp size={30} color="#ffffff" />,
+      icon: <IoLocationSharp size={28} color="#ffffff" />,
       title: "Location",
       value: "Karachi, Pakistan",
       link: "https://www.google.com/maps/place/Karachi,+Pakistan",
     },
     {
-      icon: <MdEmail size={30} color="#ffffff" />,
+      icon: <MdEmail size={28} color="#ffffff" />,
       title: "Email",
       value: "adeel8128377@gmail.com",
       link: "mailto:adeel8128377@gmail.com",
     },
     {
-      icon: <IoCallSharp size={30} color="#ffffff" />,
+      icon: <IoCallSharp size={28} color="#ffffff" />,
       title: "Phone",
       value: "+92 342 2815470",
       link: "tel:+923422815470",
@@ -84,7 +84,7 @@ function Contact() {
 
   return (
     <>
-      <div className="pt-10">
+      <div className="pt-15">
         <TextHeading heading="Contact" text="I want to hear from you" />
         <div className="w-full h-auto flex lg:flex-row flex-col mt-2">
           
@@ -97,10 +97,10 @@ function Contact() {
                 rel="noopener noreferrer"
                 className="w-full h-auto flex flex-row items-center group cursor-pointer"
               >
-                <div className="w-fit sm:py-5 sm:px-5 p-2 bg-[#00c0ff] rounded-full transition-transform duration-200 group-hover:scale-110">
+                <div className="w-fit sm:py-5 sm:px-5 p-3 bg-[#00c0ff] rounded-full transition-transform duration-200 group-hover:scale-110">
                   {item.icon}
                 </div>
-                <div className="flex flex-col text-left sm:gap-y-1 sm:px-5 sm:py-3 px-2">
+                <div className="flex flex-col text-left sm:gap-y-1 sm:px-5 sm:py-3 px-3">
                   <h1 className="text-white font-semibold sm:text-2xl text-lg">
                     {item.title}
                   </h1>
@@ -182,7 +182,7 @@ function Contact() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className={`p-3 rounded bg-[#00c0ff] text-white font-semibold transition-all ${
+                  className={`p-3 rounded-full bg-[#00c0ff] text-white font-semibold transition-all ${
                     loading ? "opacity-50 cursor-not-allowed" : "hover:bg-[#00a8e0]"
                   }`}
                 >

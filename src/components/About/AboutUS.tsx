@@ -15,7 +15,7 @@ function AboutUS() {
 
 
   return (
-    <div className="text-center w-full">
+    <div className="sm:text-center w-full">
       <TextHeading
         heading="About Me"
         text={
@@ -50,7 +50,7 @@ function AboutUS() {
         </div>
 
         {/* Text Section with Staggered Animations */}
-        <div className="lg:w-1/2 md:py-0 py-5 flex flex-col justify-center items-center lg:items-start gap-y-5 text-white text-center lg:text-left px-5 2xl:pl-20">
+        <div className="lg:w-1/2 md:py-0 py-5 flex flex-col justify-center items-center lg:items-start gap-y-5 text-white  lg:text-left px-5 2xl:pl-20">
           <div className="text-[16px] xl:text-[17px] 2xl:text-[18px] leading-relaxed max-w-[90%] lg:w-auto">
             <p className="mb-4 opacity-0 animate-slideInLeft" style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}>
               I'm a <strong className="text-[#00c0ff] transition-all duration-300 hover:text-cyan-300">Full-Stack Developer</strong> passionate about building

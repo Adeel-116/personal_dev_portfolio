@@ -26,7 +26,7 @@ const HeroSection = () => {
               Adeel
             </h1>
           </div>
-          <p className="text-sm sm:text-[15px] 2xl:text-xl text-center lg:text-left text-white font-medium leading-relaxed animate-fadeIn delay-200">
+          <p className="text-sm sm:text-[15px] 2xl:text-xl lg:text-left text-white font-medium leading-relaxed animate-fadeIn delay-200">
             🚀 <span className="text-gray-100">Transform your vision into reality with cutting-edge digital solutions.</span>
             {" "}I'm a <span className="text-cyan-400 font-semibold">Full-Stack Developer</span> specializing in building modern websites, scalable web applications, and intuitive mobile experiences.
             {" "}As a dedicated <span className="text-green-400 font-semibold">Freelancer</span>, I craft digital solutions that drive results and elevate your brand's online presence.

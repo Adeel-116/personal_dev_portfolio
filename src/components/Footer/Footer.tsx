@@ -124,7 +124,7 @@ const Footer = () => {
   return (
     <>
       <footer id="footer" ref={footerRef} className="w-full relative bg-gradient-to-br from-[#1E1345] via-[#2A1B5C] to-[#1E1345] text-white overflow-hidden">
-        <div className="relative z-10 2xl:w-[75%] xl:w-[85%] sm:w-[90%] mx-auto py-16 px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 2xl:w-[75%] xl:w-[85%] sm:w-[90%] mx-auto py-10 px-4 sm:px-6 lg:px-8">
           <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
 
             {/* Logo & Social */}
@@ -175,14 +175,14 @@ const Footer = () => {
             {/* Newsletter */}
             <div>
               <h2 className="text-lg font-semibold text-[#00C0FF] mb-4">Stay Updated</h2>
-              <p className="text-white text-[14px] mb-4">Subscribe to get the latest update</p>
+              <p className="text-white text-[15px] mb-4">Subscribe to get the latest update</p>
               <div className="flex flex-col sm:flex-row gap-2">
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email"
-                  className="flex-1 px-3 py-2 bg-white/10 text-white rounded-md text-sm"
+                  className="flex-1 px-3 py-3 bg-white/10 text-white rounded-md text-sm"
                   aria-label="Enter your email"
                 />
                 <button
@@ -201,8 +201,8 @@ const Footer = () => {
 
           {/* Divider */}
           <div className="mt-12 border-t border-white/20 pt-6 flex flex-col sm:flex-row items-center justify-between">
-            <p className="text-[15px] text-white flex items-center gap-1">
-              © {currentYear} Muhammad Adeel. Developed & Designed by me <FaHeart className="text-red-400 animate-pulse" />
+            <p className="sm:text-[15px] text-[14px] text-white flex items-center gap-1">
+              © {currentYear} Muhammad Adeel. Developed & Designed by me <FaHeart className="text-red-400 animate-pulse sm:block hidden" />
             </p>
           </div>
         </div>

@@ -34,7 +34,7 @@ function NewsLetter() {
   };
 
   return (
-    <div className='lg:w-full sm:w-[90%] w-[95%] h-auto lg:p-20 sm:p-10 p-5 flex lg:flex-row flex-col justify-center items-center sm:bg-[#432D92] sm:rounded-2xl'>
+    <div className='lg:w-full sm:w-[90%] w-[95%] h-auto lg:p-20 sm:p-10 py-4 px-2 flex lg:flex-row flex-col justify-center items-center sm:bg-[#432D92] sm:rounded-2xl'>
       
       {/* Text Section */}
       <div className='lg:w-1/2 w-full flex flex-col'>
