@@ -49,21 +49,21 @@ const Footer = () => {
     {
       name: "LinkedIn",
       icon: <FaLinkedinIn />,
-      href: "https://linkedin.com",
+      href: "https://www.linkedin.com/in/muhammad-adeel-4561bb255",
       color: "hover:text-blue-400",
       ariaLabel: "Visit my LinkedIn profile"
     },
     {
       name: "GitHub",
       icon: <LuGithub />,
-      href: "https://github.com",
+      href: "https://github.com/Adeel-116",
       color: "hover:text-gray-400",
       ariaLabel: "Visit my GitHub profile"
     },
     {
       name: "Twitter",
       icon: <FaTwitter />,
-      href: "https://twitter.com",
+      href: "https://x.com/adeel8128377",
       color: "hover:text-blue-300",
       ariaLabel: "Visit my Twitter profile"
     },
@@ -166,7 +166,7 @@ const Footer = () => {
                 {contactInfo.map((contact, idx) => (
                   <li key={idx} className="flex justify-center lg:justify-start items-center gap-3 text-white hover:text-[#00C0FF] text-[15px]">
                     <span>{contact.icon}</span>
-                    <a href={contact.href} aria-label={contact.ariaLabel} target="--blank" className="break-words text-white hover:text-[#00C0FF]">{contact.text}</a>
+                    <a href={contact.href} aria-label={contact.ariaLabel} className="break-words text-white hover:text-[#00C0FF]">{contact.text}</a>
                   </li>
                 ))}
               </ul>

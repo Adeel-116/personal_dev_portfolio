@@ -13,18 +13,9 @@ import Header from "./Header/Header";
 import { Element } from "react-scroll";
 
 import bgImageDesktop from "../assets/backGroundImage.webp";
-import bgImageMobile from "../assets/backGroundImage.webp"; // or smaller image if you have
+import bgImageMobile from "../assets/backGroundImage.webp"; 
+import LoadingScreen from "./LoadingScreen";
 
-function LoadingScreen() {
-  return (
-    <div className="fixed inset-0 bg-gradient-to-br from-[#1E1345] via-[#2A1B5C] to-[#1E1345] flex flex-col justify-center items-center z-[1001]">
-      <p className="text-lg text-gray-300 animate-fade-in">
-        Loading your experience...
-      </p>
-      <div className="w-16 h-16 border-4 border-purple-200 border-t-purple-500 rounded-full animate-spin mt-4"></div>
-    </div>
-  );
-}
 
 function ImageComponent() {
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -39,7 +30,7 @@ function ImageComponent() {
     const img = new Image();
     img.src = isMobile ? bgImageMobile : bgImageDesktop;
     img.onload = () => {
-      setTimeout(() => setImageLoaded(true), 500); // optional delay for smooth fade
+      setTimeout(() => setImageLoaded(true), 500); 
     };
 
     return () => window.removeEventListener("resize", handleResize);

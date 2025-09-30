@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { IoChevronForwardCircleOutline } from "react-icons/io5";
-import { FaStar } from "react-icons/fa"; // <-- Added star icon
+import { FaStar } from "react-icons/fa";
 import TextHeading from '../TextHeading';
 
 function Testimonials() {
@@ -10,21 +10,21 @@ function Testimonials() {
   const slideArray = [
     {
       id: 1,
-      content: "Working with Muhammad Adeel was an absolute pleasure. His dedication to delivering a top-notch product, coupled with his attention to detail, made our project a huge success. Highly recommended!",
+      content:
+        "Working with Adeel was an absolute pleasure. His dedication and attention to detail made our project a huge success. Highly recommended!",
       name: "Jenny Wilson",
-      role: "Founder & CEO of TechyZone",
     },
     {
       id: 2,
-      content: "Muhammad's technical expertise in React.js and mobile development helped us build a robust and scalable web application. His proactive communication and innovative solutions stood out throughout the project.",
+      content:
+        "Adeel's expertise in React.js and mobile development helped us build a robust application. Great communication and innovative solutions throughout the project.",
       name: "James Anderson",
-      role: "CTO at Innovatech Solutions",
     },
     {
       id: 3,
-      content: "Exceptional service! Muhammad consistently met tight deadlines while maintaining code quality. His collaborative spirit and deep understanding of software architecture made him an invaluable part of our team.",
+      content:
+        "Exceptional service! Adeel consistently met deadlines while maintaining quality. His collaborative spirit made him an invaluable part of our team.",
       name: "Sophia Lee",
-      role: "Product Manager at NextGen Apps",
     },
   ];
 
@@ -87,10 +87,9 @@ function Testimonials() {
                   {slide.name.charAt(0)}
                 </div>
                 <div className='py-1 px-2'>
-                  <h1 className='font-semibold text-white sm:text-xl text-sm text-left'>{slide.name}</h1>
-                  <p className='md:text-[14px] sm:text-[13px] text-[13px] text-left font-medium text-white'>
-                    {slide.role}
-                  </p>
+                  <h1 className='font-semibold text-white sm:text-xl text-sm text-left'>
+                    {slide.name}
+                  </h1>
                 </div>
               </div>
             </div>

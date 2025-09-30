@@ -13,7 +13,7 @@ function Contact() {
   });
 
   const [success, setSuccess] = useState("");
-  const [loading, setLoading] = useState(false); 
+  const [loading, setLoading] = useState(false);
 
   // Contact Info Array
   const contactInfo = [
@@ -28,6 +28,7 @@ function Contact() {
       title: "Email",
       value: "adeel8128377@gmail.com",
       link: "mailto:adeel8128377@gmail.com",
+
     },
     {
       icon: <IoCallSharp size={28} color="#ffffff" />,
@@ -38,7 +39,9 @@ function Contact() {
   ];
 
   // Handle input changes
-  const handleChange = (e: any) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -49,7 +52,7 @@ function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSuccess("");
-    setLoading(true); 
+    setLoading(true);
 
     try {
       const response = await fetch("https://email-integration-5maq.vercel.app/api/email/", {
@@ -87,13 +90,12 @@ function Contact() {
       <div className="pt-15">
         <TextHeading heading="Contact" text="I want to hear from you" />
         <div className="w-full h-auto flex lg:flex-row flex-col mt-2">
-          
+
           <div className="lg:w-[40%] sm:w-[80%] w-[95%] h-auto flex flex-col gap-y-3 p-5">
             {contactInfo.map((item, index) => (
               <a
                 key={index}
                 href={item.link}
-                target="_blank"
                 rel="noopener noreferrer"
                 className="w-full h-auto flex flex-row items-center group cursor-pointer"
               >
@@ -114,7 +116,7 @@ function Contact() {
 
           {/* Right Side - Form */}
           <div className="lg:w-[60%] sm:w-[90%] w-[95%] h-auto flex flex-col justify-center items-center">
-            <div className="w-full p-5 font-sans">
+            <div className="w-full sm:p-5 p-4 font-sans">
               <form
                 className="flex flex-col gap-5 text-white"
                 onSubmit={handleSubmit}
@@ -182,9 +184,8 @@ function Contact() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className={`p-3 rounded-full bg-[#00c0ff] text-white font-semibold transition-all ${
-                    loading ? "opacity-50 cursor-not-allowed" : "hover:bg-[#00a8e0]"
-                  }`}
+                  className={`p-3 rounded-full bg-[#00c0ff] text-white font-semibold transition-all ${loading ? "opacity-50 cursor-not-allowed" : "hover:bg-[#00a8e0]"
+                    }`}
                 >
                   {loading ? "Sending..." : "Submit"}
                 </button>
