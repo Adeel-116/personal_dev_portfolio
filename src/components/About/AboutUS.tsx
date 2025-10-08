@@ -1,6 +1,6 @@
 import Button from "../Button";
 import TextHeading from "../TextHeading";
-import AboutImage from "../../assets/about2.webp";
+import AboutImage from "../../assets/About.jpg";
 import { scroller } from "react-scroll";
 function AboutUS() {
 
