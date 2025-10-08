@@ -6,7 +6,7 @@ const HeroSection = () => {
 
   function scrollToContact() {
     scroller.scrollTo("contact", {
-      duration: 1000,  
+      duration: 1000,
       smooth: true,
       offset: -100,
     });
@@ -35,7 +35,15 @@ const HeroSection = () => {
           <div className="mt-8 flex justify-center lg:justify-start animate-fadeIn delay-300 gap-x-2">
             <Button aria-label="Contact Muhammad Adeel" buttonTile="Get Connected" onClick={scrollToContact} />
 
-            <Button  aria-label="Download Resume" buttonTile="Download Resume" onClick={()=>("")} />
+
+            <Button aria-label="Download Resume" buttonTile="Download Resume" onClick={() => {
+              const link = document.createElement('a');
+              link.href = '../../assets/Adeel-Full-Stack-Developer.pdf';
+              link.download = 'Adeel-Full-Stack-Developer.pdf'; 
+              document.body.appendChild(link);
+              link.click();
+              document.body.removeChild(link);
+            }} />
 
           </div>
         </div>
