@@ -32,8 +32,11 @@ const HeroSection = () => {
             {" "}As a dedicated <span className="text-green-400 font-semibold">Freelancer</span>, I craft digital solutions that drive results and elevate your brand's online presence.
           </p>
 
-          <div className="mt-8 flex justify-center lg:justify-start animate-fadeIn delay-300">
+          <div className="mt-8 flex justify-center lg:justify-start animate-fadeIn delay-300 gap-x-2">
             <Button aria-label="Contact Muhammad Adeel" buttonTile="Get Connected" onClick={scrollToContact} />
+
+            <Button  aria-label="Download Resume" buttonTile="Download Resume" onClick={()=>("")} />
+
           </div>
         </div>
       </div>
