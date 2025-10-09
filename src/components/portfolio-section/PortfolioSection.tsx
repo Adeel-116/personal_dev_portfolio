@@ -9,6 +9,7 @@ import food from "../../assets/food-website.png";
 import Portfolio_pic from "../../assets/portfolio-website.png";
 import ComplainApp from "../../assets/complainApp.png";
 import MediConnectApp from "../../assets/medi-connect.png"
+import PixelMind from "../../assets/PixelMind2.png"
 const portfolioData = [
   {
     id: 1,
@@ -32,8 +33,19 @@ const portfolioData = [
     liveUrl: "https://e-store-website-phi.vercel.app/",
     githubUrl: "https://github.com/Adeel-116/e-store-website",
   },
+ {
+  id: 3,
+  title: "Pixel Mind Technology",
+  description:
+    "A branding website with an engaging interface, designed to capture attention and reflect a modern digital identity.",
+  image: PixelMind,
+  technologies: ["React", "Next", "Tailwind-CSS", "javaScript"],
+  category: "web",
+  liveUrl: "https://tech-codency-website-213f.vercel.app/",
+  githubUrl: "https://github.com/Adeel-116/TechCodency-Website",
+},
   {
-    id: 3,
+    id: 4,
     title: "Traveling Website Frontend",
     description:
       "Frontend of a traveling website developed from Figma designs, focusing on responsive layout and smooth user experience.",
@@ -44,7 +56,7 @@ const portfolioData = [
     githubUrl: "https://github.com/Adeel-116/Travel_website",
   },
   {
-    id: 4,
+    id: 5,
     title: "E-Commerce Website",
     description:
       "A complete e-commerce website with user authentication, shopping cart, and responsive design.",
@@ -55,7 +67,7 @@ const portfolioData = [
     githubUrl: "https://github.com/Adeel-116/Ecom-website",
   },
   {
-    id: 5,
+    id: 6,
     title: "Figma Design Clone",
     description:
       "Frontend clone of Figma designs using HTML, CSS, and JavaScript, focusing on pixel-perfect design and responsiveness.",
@@ -66,7 +78,7 @@ const portfolioData = [
     githubUrl: "https://github.com/Adeel-116/Figma_to_HTML",
   },
   {
-    id: 6,
+    id: 7,
     title: "Portfolio Website",
     description:
       "A personal portfolio website showcasing projects and skills with responsive design and modern UI.",
@@ -77,7 +89,7 @@ const portfolioData = [
     githubUrl: "https://github.com/Adeel-116/Personal_portfolio",
   },
   {
-    id: 7,
+    id: 8,
     title: "Complaint App",
     description:
       "A complaint management app developed for a client using React Native, with real-time notifications and intuitive UI.",
@@ -93,7 +105,7 @@ const portfolioData = [
     githubUrl: "https://github.com/Adeel-116/Complain_App",
   },
  {
-  id: 8,
+  id: 9,
   title: "MediConnect App",
   description:
     "A healthcare app for doctors and patients, built with React Native, offering appointment scheduling, and a smooth, intuitive UI.",
@@ -107,7 +119,9 @@ const portfolioData = [
   category: "mobile",
   liveUrl: "https://drive.google.com/drive/folders/1z7RtjwHOIp8Fk9nh_n6kA-IWVCNAB7I7?usp=sharing",
   githubUrl: "https://github.com/Adeel-116/Medi-Connect-App/",
-}
+},
+
+
 ];
 
 const AnimatedBackground = () => (
