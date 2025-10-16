@@ -112,18 +112,18 @@ function SkillSection() {
 const skills = [
   { name: 'HTML', percentage: 95, color: '#e34c26', category: 'Frontend' },
   { name: 'CSS', percentage: 90, color: '#1572b6', category: 'Frontend' },
-  { name: 'JavaScript', percentage: 85, color: '#f7df1e', category: 'Frontend' },
-  { name: 'React', percentage: 88, color: '#61dafb', category: 'Frontend' },
+  { name: 'JavaScript', percentage: 90, color: '#f7df1e', category: 'Frontend' },
   { name: 'TypeScript', percentage: 82, color: '#007acc', category: 'Frontend' },
+   { name: 'React', percentage: 90, color: '#61dafb', category: 'Frontend' },
+    { name: 'Nextjs', percentage: 90, color: '#000000', category: 'Frontend' },
 
   { name: 'Node.js', percentage: 80, color: '#68a063', category: 'Backend' },
-  { name: 'Express.js', percentage: 78, color: '#000000', category: 'Backend' },
-  { name: 'MongoDB', percentage: 70, color: '#4db33d', category: 'Backend' },
-  { name: 'MySQL', percentage: 72, color: '#00758f', category: 'Backend' },
-  { name: 'Python', percentage: 75, color: '#3776ab', category: 'Backend' },
+  { name: 'Express.js', percentage: 90, color: '#000000', category: 'Backend' },
+  { name: 'MongoDB', percentage: 80, color: '#4db33d', category: 'Backend' },
+  { name: 'MySQL', percentage: 90, color: '#00758f', category: 'Backend' },
+  { name: 'Python', percentage: 60, color: '#3776ab', category: 'Backend' },
 
-  { name: 'Git', percentage: 85, color: '#f05032', category: 'DevOps' },
-  { name: 'GitHub', percentage: 82, color: '#181717', category: 'DevOps' },
+  { name: 'GitHub', percentage: 80, color: '#181717', category: 'DevOps' },
 ]
 
   return (
